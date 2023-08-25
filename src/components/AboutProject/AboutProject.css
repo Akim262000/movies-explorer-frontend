@@ -1,0 +1,51 @@
+.project__about {
+  display: flex;
+  justify-content: space-between;
+  margin: 70px 0 110px;
+}
+
+.project__description {
+  margin-right: 40px;
+}
+
+.project__title {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.project__text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.project__duration {
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) 4fr;
+  grid-template-rows: 36px 31px;
+}
+
+.project__line {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project__line_type_short {
+  background-color: #3ddc84;
+  color: #000;
+}
+
+.project__line_type_long {
+  background-color: #303030;
+  color: #000;
+}
+
+.project__part {
+  font-weight: 500;
+  color: #8b8b8b;
+  align-items: flex-end;
+}
