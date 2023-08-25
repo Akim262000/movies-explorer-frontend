@@ -1,0 +1,22 @@
+.intro {
+  box-sizing: border-box;
+  background-color: #272727;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 493px;
+  padding: 30px 0 30px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.intro__title {
+  width: 730px;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 58px;
+  text-align: center;
+  margin-bottom: 160px;
+}

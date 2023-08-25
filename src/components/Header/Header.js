@@ -10,12 +10,12 @@ function Header() {
       </Link>
       <nav className="header__menu">
       <div className="header__menu-container">
-          <Link to="/movies" className="header__link">Фильм</Link>
-          <Link to="/saved-movies" className="header__link">Сохраненный фильм</Link>
+          <Link to="/movies" className="header__film-link">Фильм</Link>
+          <Link to="/saved-movies" className="header__film-link">Сохраненный фильм</Link>
         </div>
         <div className="header__menu-container">
-          <Link to="/sign-up" className="header__film-link">Регистрация</Link>
-          <Link to="/sign-in" className="header__film-link">Войти</Link>
+          <Link to="/sign-up" className="header__link">Регистрация</Link>
+          <Link to="/sign-in" className="header__link">Войти</Link>
         </div>
       </nav>
     </header>
