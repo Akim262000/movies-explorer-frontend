@@ -1,7 +1,7 @@
-import "./AboutProjects.css"
+import "./AboutProject.css"
 
-function AboutProjects() {
+function AboutProject() {
   return 
 }
 
-export default AboutProjects;
+export default AboutProject;
