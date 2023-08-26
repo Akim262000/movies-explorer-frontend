@@ -20,7 +20,7 @@ function App() {
 
         <Route path="/saved-movies" element={<SavedMovies />} />
 
-        <Route path="/signup" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
 
         <Route path="/signup" element={<Register />} />
 

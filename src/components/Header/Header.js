@@ -14,8 +14,8 @@ function Header() {
           <Link to="/saved-movies" className="header__film-link app__link">Сохраненный фильм</Link>
         </div>
         <div className="header__menu-container">
-          <Link to="/sign-up" className="header__link app__link">Регистрация</Link>
-          <Link to="/sign-in" className="header__link app__link">Войти</Link>
+          <Link to="/signup" className="header__link app__link">Регистрация</Link>
+          <Link to="/signin" className="header__link app__link">Войти</Link>
         </div>
       </nav>
     </header>
