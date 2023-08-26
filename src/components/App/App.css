@@ -1,5 +1,21 @@
 .app {
   background-color: #202020;
-  color: #FFF;
+  font-family: "Inter", "Arial", "Helvetica", sans-serif;
+  color: #fff;
   padding: 0 40px;
+}
+
+.app__link {
+  text-decoration: none;
+  transition: opacity 0.3s ease-in;
+}
+
+.app__link:hover {
+  opacity: 0.4;
+}
+
+.app__link-outside {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease-in;
 }

@@ -1,0 +1,22 @@
+.content{
+  padding-top: 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.content__section{
+  box-sizing: border-box;
+  padding: 110px 30px;
+}
+
+.content__title{
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  margin: 0;
+  padding: 0 0 23px;
+  border-bottom: 1px solid #dadada;
+  position: relative;
+  z-index: 1;
+}

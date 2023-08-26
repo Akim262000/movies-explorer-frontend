@@ -3,7 +3,7 @@ import photo from "../../images/photo.jpg";
 
 function AboutMe() {
   return (
-    <section className="student content__section">
+    <section className="student content__section" id="student">
       <h2 className="content__title">Студент</h2>
       <article className="about-me">
         <div className="about-me__container">
@@ -15,9 +15,9 @@ function AboutMe() {
               Работаю системным администратором. Стремлюсь к тому, чтобы полностью перейти в сферу программирования.
             </p>
           </div>
-          <ul>
+          <ul className="about-me__contacts">
             <li className="about-me__contact">
-              <a className="about-me__link" href="https://github.com/Akim262000">
+              <a className="about-me__link app__link-outside" href="https://github.com/Akim262000">
                 Github
               </a>
             </li>
