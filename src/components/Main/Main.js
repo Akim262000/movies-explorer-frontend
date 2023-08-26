@@ -8,7 +8,7 @@ import Portfolio from "../Portfolio/Portfolio";
 function Main() {
   return (
     <div>
-            <Promo />
+      <Promo />
       <AboutProject />
       <Techs />
       <AboutMe />
