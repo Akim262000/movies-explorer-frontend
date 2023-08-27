@@ -10,17 +10,17 @@ function Register() {
       <form className="register__form">
       <label className="register__label">Имя
           <input className="register__input" id="name" type="name" name="name" minLength="2" maxLength="30" required/>
-          <span className="register__error"></span>
+          <span className="register__error" id="name-error"></span>
         </label>
 
         <label className="register__label">E-mail
           <input className="register__input" id="email" type="email" name="login" minLength="2" maxLength="30" required/>
-          <span className="register__error"></span>
+          <span className="register__error" id="email-error"></span>
         </label>
 
         <label className="register__label">Пароль
           <input className="register__input" id="password" type="password" name="password" minLength="4" maxLength="20" required/>
-          <span className="register__error"></span>
+          <span className="register__error" id="password-error"></span>
         </label>
 
         <button className="register__submit-button" type="submit">зарегистрироваться</button>

@@ -10,12 +10,12 @@ function Login() {
       <form className="login__form">
         <label className="login__label">E-mail
           <input className="login__input" id="email" type="email" name="login" minLength="2" maxLength="30" required/>
-          <span className="login__error"></span>
+          <span className="login__error" id="email-error"></span>
         </label>
 
         <label className="login__label">Пароль
           <input className="login__input" id="password" type="password" name="password" minLength="4" maxLength="20" required/>
-          <span className="login__error"></span>
+          <span className="login__error" id="password-error"></span>
         </label>
 
         <button className="login__submit-button" type="submit">Войти</button>
