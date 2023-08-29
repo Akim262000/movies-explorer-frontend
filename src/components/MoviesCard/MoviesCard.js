@@ -11,7 +11,7 @@ function MoviesCard(props) {
         </div>
         <button className={`movies-card__button 
         ${props.savedPage ? 'movies-card__button-delete' : 'movies-card__button-save'}
-        ${props.card.owner === 1 && !props.savedPage ? 'movies-card__button-save_active' : null}`} type="button">Сохранить</button>
+        ${props.card.owner === 1 && !props.savedPage ? 'movies-card__button-save_active' : null}`} type="button"></button>
       </div>
     </section>
   )

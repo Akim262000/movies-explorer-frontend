@@ -23,7 +23,7 @@ export const arr = [
     duration: 77,
     image: film2,
     nameRu: 'Киноальманах «100 лет дизайна»',
-    owner: 0,
+    owner: 1,
     movieId: 2,
   },
   {
@@ -51,7 +51,7 @@ export const arr = [
     duration: 77,
     image: film6,
     nameRu: 'Книготорговцы',
-    owner: 0,
+    owner: 1,
     movieId: 6,
   },
   {
