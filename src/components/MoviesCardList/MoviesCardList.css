@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.movies-card-list__container {
+.movies-сard-list__container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   justify-content: center;
@@ -13,7 +13,7 @@
   box-sizing: border-box;
   grid-column-gap: 30px;
   grid-row-gap: 90px;
-  padding: 80px 0 30px;
+  padding: 80px 0 72px;
 }
 
 .movies-card-list__button {

@@ -9,6 +9,8 @@ import Register from "../Register/Register";
 import Login from "../Login/Login";
 import Footer from "../Footer/Footer";
 
+import {arr} from '../../utils/data'
+
 function App() {
   return (
     <div className='app'> 
@@ -16,9 +18,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />} />
 
-        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies" element={<Movies list={arr}/>} />
 
-        <Route path="/saved-movies" element={<SavedMovies />} />
+        <Route path="/saved-movies" element={<SavedMovies list={arr}/>} />
 
         <Route path="/profile" element={<Profile />} />
 
