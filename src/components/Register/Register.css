@@ -3,8 +3,10 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 394px;
+  width: 396px;
   margin: 0 auto;
+  height: 100%;
+  background-color: #202020;
 }
 
 .register__title {
