@@ -9,7 +9,7 @@ import Register from "../Register/Register";
 import Login from "../Login/Login";
 import Footer from "../Footer/Footer";
 
-import {arr} from '../../utils/data'
+import {arr, saveList} from '../../utils/data'
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
 
         <Route path="/movies" element={<Movies list={arr}/>} />
 
-        <Route path="/saved-movies" element={<SavedMovies list={arr}/>} />
+        <Route path="/saved-movies" element={<SavedMovies list={saveList}/>} />
 
         <Route path="/profile" element={<Profile />} />
 

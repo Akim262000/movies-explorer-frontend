@@ -95,6 +95,29 @@ export const arr = [
     nameRu: 'По волнам: Искусство звука в кино',
     owner: 0,
     movieId: 12,
+  }, 
+];
+
+export const saveList = [
+  {
+    duration: 77,
+    image: film1,
+    nameRu: '33 слова о дизайне',
+    owner: 0,
+    movieId: 1,
   },
-  
+  {
+    duration: 77,
+    image: film2,
+    nameRu: 'Киноальманах «100 лет дизайна»',
+    owner: 1,
+    movieId: 2,
+  },
+  {
+    duration: 77,
+    image: film3,
+    nameRu: 'В погоне за Бенкси',
+    owner: 0,
+    movieId: 3,
+  },
 ]
