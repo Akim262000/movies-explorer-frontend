@@ -1,11 +1,11 @@
 import "./Login.css"
-import logo from '../../images/logo.png';
 import { Link } from "react-router-dom";
+import Logo from "../Logo/Logo";
 
 function Login() {
   return (
     <section className="login">
-      <Link to='/'><img src={logo} alt="Логотип" /></Link>
+      <Logo />
       <h2 className="login__title">Рады видеть</h2>
       <form className="login__form">
         <label className="login__label">E-mail

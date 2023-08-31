@@ -1,12 +1,10 @@
 .register {
-  padding: 70px 0;
+  padding: 70px auto 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 396px;
-  margin: 0 auto;
-  height: 100%;
-  background-color: #202020;
+  margin: auto;
 }
 
 .register__title {
@@ -39,10 +37,9 @@
   padding: 5px 0 10px;
   font-style: inherit;
   box-sizing: border-box;
-  background-color: transparent;
+  background-color: #2f2f2f;
   border: none;
   color: #fff;
-  border-bottom: 1px solid  #2f2f2f;
   width: 100%;
 }
 
