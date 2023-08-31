@@ -8,6 +8,7 @@ import Register from "../Register/Register";
 import Login from "../Login/Login";
 import {arr, saveList} from '../../utils/data'
 import React from 'react';
+import NotFound from '../NotFound/NotFouns';
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
 
         <Route path="/signin" element={<Login />} />
 
-        <Route path="*" />
+        <Route path="*" element={<NotFound />} />
 
       </Routes>
 
