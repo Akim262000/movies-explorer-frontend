@@ -1,14 +1,22 @@
 .navigation-menu {
   display: flex;
   width: 100%;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
-.navigation-menu__container {
+.navigation-menu__container-movies {
   display: flex;
   align-items: center;
+  width: 100%;
+  justify-content: center;
+}
 
+.navigation-menu__container-auth {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 100%;
 }
 
 .navigation-menu__link {
@@ -23,14 +31,18 @@
 .navigation-menu__button {
   text-decoration: none;
   color: white;
-  margin-right: 30px;
   line-height: 16px;
   font-size: 12px;
   font-weight: 500;
   width: 76px;
   height: 32px;
   background-color: #3ddc84;
-  text-align: center;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navigation-menu__button-account {
@@ -43,4 +55,5 @@
   font-size: 14px;
   line-height: 16px;
   border: none;
+  cursor: pointer;
 }

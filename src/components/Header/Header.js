@@ -1,14 +1,11 @@
-import { Link } from "react-router-dom";
 import "./Header.css";
-import logo from "../../images/logo.png";
 import Navigation from '../Navigation/Navigation';
+import Logo from "../Logo/Logo";
 
 function Header({isLoggedIn}) {
   return (
     <header className="header">
-      <Link to="/">
-        <img className="header__logo" src={logo} alt="Логотип" />
-      </Link>
+      <Logo />
       <Navigation isLoggedIn={isLoggedIn}/>
     </header>
   );
