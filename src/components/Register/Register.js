@@ -6,7 +6,7 @@ function Register() {
   return (
     <section className="register">
       <Logo />
-      <h2 className="register__title">Добро пожаловать</h2>
+      <h2 className="register__title">Добро пожаловать!</h2>
       <form className="register__form">
       <label className="register__label">Имя
           <input className="register__input" id="name" type="name" name="name" minLength="2" maxLength="30" required/>

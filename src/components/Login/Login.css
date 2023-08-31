@@ -8,7 +8,9 @@
 }
 
 .login__title {
-  margin: 40px 0;
+  margin: 0;
+  margin-top: 40px;
+  margin-bottom: 30px;
   font-weight: 500;
   font-size: 24px;
   line-height: 29px; 
@@ -16,7 +18,6 @@
 
 .login__form {
   width: 100%;
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
@@ -26,19 +27,19 @@
   font-size: 10px;
   line-height: 12px;
   color: #A0A0A0;
-  margin-bottom: 24px;
-  position: relative;
+  margin-bottom: 8px;
+  line-height: 30px;
 }
 
 .login__input {
   font-weight: 400;
   font-size: 14px;
-  line-height: 17px;
-  padding: 5px 0 10px;
-  font-style: inherit;
+  padding: 15px;
+  margin-bottom: 4px;
   box-sizing: border-box;
   background-color: #2f2f2f;
   border: none;
+  border-radius: 8px;
   color: #fff;
   width: 100%;
 }
@@ -67,7 +68,10 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 17px;
-  margin-top: auto;
+  width: 100%;
+  text-align: center;
+  padding: 13px 0 15px;
+  margin-top: 168px;
 }
 
 .login__subtitle {

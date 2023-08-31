@@ -6,7 +6,7 @@ function Login() {
   return (
     <section className="login">
       <Logo />
-      <h2 className="login__title">Рады видеть</h2>
+      <h2 className="login__title">Рады видеть!</h2>
       <form className="login__form">
         <label className="login__label">E-mail
           <input className="login__input" id="email" type="email" name="login" minLength="2" maxLength="30" required/>
