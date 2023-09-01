@@ -18,6 +18,9 @@
 .movies-card__title {
   font-size: 13px;
   font-weight: 500;
+  max-width: 230px;
+  margin-bottom: 0;
+  margin-top: 10px;
 }
 
 .movies-card__duration {
@@ -31,6 +34,7 @@
   background-color: #2f2f2f;
   width: 42px;
   text-align: center;
+  height: 12px;
 }
 
 .movies-card__button {

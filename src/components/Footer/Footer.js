@@ -1,8 +1,8 @@
 import "./Footer.css";
 
-function Footer() {
+function Footer(props) {
   return (
-    <footer className="footer">
+    <footer className={!props.savedMoviesPage ? "footer" : "footer__save-movies"}>
       <h4 className="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</h4>
       <div className="footer__container">
         <p className="footer__year"> &copy; 2023</p>

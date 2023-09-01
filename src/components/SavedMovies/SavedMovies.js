@@ -11,7 +11,7 @@ function SavedMovies({list, isLoggedIn}) {
       <Header isLoggedIn={isLoggedIn} />
       <SearchMovie />
       <MoviesCardList list={list} savedMoviesPage={true}/>
-      <Footer />
+      <Footer savedMoviesPage={true}/>
     </section>
   )
 }
