@@ -1,10 +1,9 @@
 .login {
-  padding: 70px auto 0;
+  margin: 70px 0 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 396px;
-  margin: auto;
 }
 
 .login__title {
