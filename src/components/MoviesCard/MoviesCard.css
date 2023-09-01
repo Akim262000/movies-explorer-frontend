@@ -12,7 +12,7 @@
 .movies-card__info {
   display: flex;
   justify-content: space-between;
-  padding: 0 18px 0;
+  padding: 0 14px 0;
 }
 
 .movies-card__title {
@@ -29,6 +29,8 @@
   font-size: 11px;
   line-height: 10px;
   background-color: #2f2f2f;
+  width: 42px;
+  text-align: center;
 }
 
 .movies-card__button {

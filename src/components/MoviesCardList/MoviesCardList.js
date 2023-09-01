@@ -13,7 +13,7 @@ function MoviesCardList(props) {
           />)
         )}
       </div>
-      <button className="movies-card-list__button" type="button" aria-label="Показать ещё">
+      <button className={!props.savedMoviesPage? "movies-card-list__button" : "movies-card-list__button_type_hidden"} type="button" aria-label="Показать ещё">
           Ещё
       </button>
     </section>

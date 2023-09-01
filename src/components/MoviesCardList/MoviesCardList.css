@@ -13,7 +13,7 @@
   box-sizing: border-box;
   grid-column-gap: 30px;
   grid-row-gap: 90px;
-  padding: 80px 0 72px;
+  padding: 84px 0 306px;
   margin: 0 auto;
 }
 
@@ -25,4 +25,8 @@
   background-color: inherit;
   color: #fff;
   border-radius: 6px;
+}
+
+.movies-card-list__button_type_hidden {
+  display: none;
 }
