@@ -7,8 +7,8 @@ function Navigation({isLoggedIn}) {
       {isLoggedIn ? (
         <>
       <div className="navigation-menu__container-movies">
-          <Link to="/movies" className="navigation-menu__link app__link">Фильм</Link>
-          <Link to="/saved-movies" className="navigation-menu__link app__link">Сохраненный фильм</Link>
+          <Link to="/movies" className="navigation-menu__link app__link">Фильмы</Link>
+          <Link to="/saved-movies" className="navigation-menu__link app__link">Сохранённые фильмы</Link>
         </div>
         <div>
           <Link to='/profile'>

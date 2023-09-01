@@ -60,13 +60,17 @@
 }
 
 .profile__button_type_edit {
-  margin-top: 220px;
-  margin-bottom: 16px;
+  margin-top: 206px;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.profile__button_type_exit {
+  font-weight: 500;
 }
 
 .profile__link {
 color: #ee3465;
-font-weight: 500;
 }
 
 .profile__error{
