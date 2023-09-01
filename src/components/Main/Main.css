@@ -8,6 +8,11 @@
   padding: 110px 30px;
 }
 
+.content__section-about-me {
+  padding: 0;
+  padding: 110px 30px 100px;
+}
+
 .content__title{
   font-weight: 500;
   font-size: 22px;

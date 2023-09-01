@@ -1,11 +1,13 @@
 .portfolio {
-  padding-top: 0;
-  padding-bottom: 90px;
+  box-sizing: border-box;
+  padding: 0px 30px 46px;
 }
 
 .portfolio__title {
+  margin: 0;
   font-weight: 400;
   font-size: 18px;
+  line-height: 20px;
   color: #8b8b8b;
 }
 
@@ -37,6 +39,8 @@
   margin: 0;
   font-weight: 400;
   font-size: 30px;
+  line-height: 50px;
+  letter-spacing: -1.2px;
 }
 
 .portfolio__link {

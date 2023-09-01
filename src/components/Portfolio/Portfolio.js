@@ -3,7 +3,7 @@ import arrow from "../../images/arrow.svg";
 
 function Portfolio() {
   return (
-    <section className="portfolio content__section">
+    <section className="portfolio">
       <h2 className="portfolio__title">Портфолио</h2>
       <ul className="portfolio__projects">
         <li className="portfolio__project">
