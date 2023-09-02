@@ -1,14 +1,12 @@
 .intro {
   box-sizing: border-box;
   background-color: #272727;
-  width: 100%;
   display: flex;
-  align-items: center;
-  min-height: 493px;
-  padding: 144px 0 30px;
+  padding: 126px 0 30px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 0 40px;
 }
 
 .intro__title {
@@ -19,4 +17,14 @@
   text-align: center;
   margin-bottom: 152px;
   letter-spacing: -2px;
+}
+
+@media screen and (max-width: 768px) {
+  .intro__title {
+    font-size: 40px;
+    line-height: 52px;
+    letter-spacing: -1.6px;
+    max-width: 680px;
+    margin: 206px 0 312px;
+  }
 }

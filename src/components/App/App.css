@@ -2,7 +2,7 @@
   background-color: #202020;
   font-family: "Inter", "Arial", "Helvetica", sans-serif;
   color: #fff;
-  padding: 0 40px;
+  /* padding: 0 40px; */
   min-height: 100vh;
   min-width: 320px;
   display: flex;
@@ -25,4 +25,10 @@
   color: #fff;
   text-decoration: none;
   transition: color 0.3s ease-in;
+}
+
+@media screen and (max-width: 768px) {
+  .app {
+    /* padding: 0 20px; */
+  }
 }

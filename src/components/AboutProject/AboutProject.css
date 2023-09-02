@@ -1,3 +1,7 @@
+.project {
+  margin: 110px 70px 0;
+}
+
 .project__about {
   display: flex;
   justify-content: space-between;
@@ -53,4 +57,23 @@
   font-size: 14px;
   line-height: 17px;
   align-items: flex-end;
+}
+
+@media screen and (max-width: 768px) {
+  .project__about {
+    margin-bottom: 94px;
+  }
+
+  .project__description {
+    max-width: 320px;
+  }
+
+  .project__title {
+    margin-bottom: 22px;
+  }
+
+  .project__text {
+    font-size: 12px;
+    line-height: 18px;
+  }
 }

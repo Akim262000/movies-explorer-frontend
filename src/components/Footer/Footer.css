@@ -1,8 +1,9 @@
 .footer {
-  width: 100%;
+
   box-sizing: border-box;
-  padding: 158px 30px 20px;
+  padding: 158px 0 20px;
   margin-top: auto;
+  margin: 0 70px;
 }
 
 .footer__save-movies {
