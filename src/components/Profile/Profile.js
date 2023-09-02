@@ -8,8 +8,8 @@ const email = "pochta@yandex.ru";
 function Profile({isLoggedIn}) {
   return (
     <>
-    <Header isLoggedIn={isLoggedIn} />
     <section className="profile">
+    <Header isLoggedIn={isLoggedIn} />
       <div className="profile__container">
         <h2 className="profile__title">Привет, Виталий!</h2>
         <form className="profile__form">
