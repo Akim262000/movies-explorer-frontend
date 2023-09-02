@@ -50,3 +50,14 @@
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (max-width: 768px) {
+  .portfolio {
+    margin: 90px 50px 0;
+  }
+
+  .portfolio__subtitle {
+    font-size: 28px;
+    letter-spacing: -1.12px;
+  }
+}

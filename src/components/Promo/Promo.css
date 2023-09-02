@@ -20,11 +20,16 @@
 }
 
 @media screen and (max-width: 768px) {
+  .intro {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
   .intro__title {
     font-size: 40px;
     line-height: 52px;
     letter-spacing: -1.6px;
     max-width: 680px;
-    margin: 206px 0 312px;
+    margin: 226px 0 312px;
   }
 }
