@@ -25,7 +25,7 @@
 .navigation-menu__link {
   text-decoration: none;
   color: white;
-  margin-right: 20px;
+  margin-right: 31px;
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
@@ -64,8 +64,26 @@
   margin: 0;
 }
 
+.navigation-menu__button-burger {
+  background-image: url('../../images/button-burger.svg');
+  width: 44px;
+  height: 44px;
+  background-color: #202020;
+  display: none;
+  border: none;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   .navigation-menu__link {
-    line-height: 12px;
+    display: none;
+  }
+
+  .navigation-menu__button-account {
+    display: none;
+  }
+
+  .navigation-menu__button-burger {
+    display: block;
   }
 }

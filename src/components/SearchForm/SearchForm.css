@@ -111,3 +111,13 @@ margin-left: 10px;
 .search-form__filter .search-form__radio:checked{
   z-index: 1;
 }
+
+@media screen and (max-width: 768px) {
+  .search-form {
+    margin: 0 30px;
+  }
+
+  .search-form__filter-container {
+    margin-top: 46px;
+  }
+}

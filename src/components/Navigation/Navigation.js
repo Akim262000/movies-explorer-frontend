@@ -1,7 +1,15 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import "./Navigation.css"
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 function Navigation({isLoggedIn}) {
+  const [isBurgerMenuOpen, setIsBurgerMenuOpen] = React.useState(false);
+
+  const toggleBurgerMenu = () => {
+    setIsBurgerMenuOpen(!isBurgerMenuOpen);
+  }
+
   return (
     <nav className="navigation-menu">
       {isLoggedIn ? (
@@ -21,6 +29,10 @@ function Navigation({isLoggedIn}) {
           <Link to="/signup" className="navigation-menu__link app__link">Регистрация</Link>
           <Link to="/signin" className="navigation-menu__button app__link">Войти</Link>
         </div>)}
+        {!isBurgerMenuOpen && isLoggedIn ? (
+        <button className='navigation-menu__button-burger' onClick={toggleBurgerMenu} />
+      ) : <BurgerMenu onClose={toggleBurgerMenu} />
+      }
       </nav>
   )
 }
