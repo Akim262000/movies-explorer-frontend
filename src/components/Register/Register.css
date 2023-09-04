@@ -4,7 +4,6 @@
   justify-content: center;
   flex-direction: column;
   width: 396px;
-  /* margin: auto; */
 }
 
 .register__title {
@@ -85,4 +84,10 @@
   color: #4285F4;
   text-decoration: none;
   margin-left: 6px;
+}
+
+@media screen and (max-width: 768px) {
+  .register {
+    margin-top: 233px;
+  }
 }

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './BurgerMenu.css'
 
 function BurgerMenu({onClose}) {
@@ -8,13 +8,13 @@ function BurgerMenu({onClose}) {
         <div className="burger__container">
           <button type='button' className="burger__button-close" onClick={() => onClose()}/>
           <div className="burger__menu">
-            <NavLink to="/" activeClassName="burger__menu__link_active" className="burger__menu__link">Главная</NavLink>
-            <NavLink to="/movies" activeClassName="burger__menu__link_active" className="burger__menu__link">Фильмы</NavLink>
-            <NavLink to="/saved-movies" activeClassName="burger__menu__link_active" className="burger__menu__link">Сохранённые фильмы</NavLink>
+            <Link to="/" activeClassName="burger__menu__link_active" className="burger__menu__link">Главная</Link>
+            <Link to="/movies" activeClassName="burger__menu__link_active" className="burger__menu__link">Фильмы</Link>
+            <Link to="/saved-movies" activeClassName="burger__menu__link_active" className="burger__menu__link">Сохранённые фильмы</Link>
           </div>
-            <NavLink to='/profile'>
+            <Link to='/profile'>
               <button className="burger__button-account">Аккаунт</button>
-            </NavLink>
+            </Link>
         </div>
       </div>
     </div>

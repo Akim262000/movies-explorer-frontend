@@ -1,9 +1,7 @@
 .search-form {
   box-sizing: border-box;
-  /* width: 100%; */
   padding: 62px 0 0;
-  /* margin-bottom: 28px; */
-margin: 0 70px;
+  margin: 0 70px;
   border-bottom: 1px solid #424242;
 }
 
@@ -118,6 +116,6 @@ margin-left: 10px;
   }
 
   .search-form__filter-container {
-    margin-top: 40px;
+    margin-top: 42px;
   }
 }

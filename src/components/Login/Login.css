@@ -86,3 +86,9 @@
   text-decoration: none;
   margin-left: 6px;
 }
+
+@media screen and (max-width: 768px) {
+  .login {
+    margin-top: 233px;
+  }
+}

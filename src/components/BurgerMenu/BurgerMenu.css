@@ -1,5 +1,5 @@
 .burger {
-  z-index: 12;
+  z-index: 3;
   transition: 0.3s ease;
 }
 
@@ -17,13 +17,13 @@
   top: 0;
   right: 0;
   bottom: 0;
-  width: 68%;
-  height: 100%;
-  background-color: #202020;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background-color: #202020;
+  width: 68%;
+  height: 100%;
 }
 
 .burger__button-close {
@@ -81,3 +81,9 @@
   transition: 0.3s ease;
   margin-bottom: 90px;
 }
+
+/* @media screen and (min-width: 769px) {
+  .burger {
+    display: none;
+  }
+} */

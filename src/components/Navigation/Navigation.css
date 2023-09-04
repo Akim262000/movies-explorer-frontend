@@ -66,12 +66,13 @@
 
 .navigation-menu__button-burger {
   background-image: url('../../images/button-burger.svg');
-  width: 44px;
+  width: 50px;
   height: 44px;
   background-color: #202020;
   display: none;
   border: none;
   cursor: pointer;
+  background-position: center;
 }
 
 @media screen and (max-width: 768px) {
