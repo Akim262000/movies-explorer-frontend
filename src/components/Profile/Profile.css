@@ -10,8 +10,7 @@
   display: flex;
   flex-direction: column;
   width: 410px;
-  margin: auto;
-  padding-top: 54px;
+  margin: 54px auto 0;
 }
 
 .profile__title {
@@ -84,4 +83,22 @@ color: #ee3465;
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__container {
+    margin-top: 210px;
+  }
+
+  .profile__form {
+    margin-top: 84px;
+  }
+
+  .profile__button_type_edit {
+    margin-top: 196px;
+  }
+
+  .profile__button_type_exit {
+    margin-bottom: 269px;
+  }
 }
