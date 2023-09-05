@@ -92,3 +92,32 @@
     margin-top: 233px;
   }
 }
+
+@media screen and (max-width: 450px) {
+  .login {
+    width: 260px;
+    align-items: center;
+    margin-top: 56px;
+  }
+
+  .login__title {
+    margin-top: 50px;
+  }
+   
+  .login__form {
+    margin-top: 44px;
+  }
+
+  .login__input {
+    font-size: 13px;
+  }
+
+  .login__submit-button {
+    margin-top: 256px;
+    font-size: 12px;
+  }
+
+  .login__subtitle {
+    font-size: 12px;
+  }
+}
