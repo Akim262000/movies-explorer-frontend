@@ -11,3 +11,10 @@
     margin-top: 15px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .header {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+}

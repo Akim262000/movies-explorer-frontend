@@ -119,3 +119,14 @@ margin-left: 10px;
     margin-top: 42px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .search-form {
+    margin: 0 14px;
+    padding-top: 56px;
+  }
+
+  .search-form__filter-container {
+    margin-top: 48px;
+  }
+}

@@ -49,3 +49,20 @@
     margin-bottom: 36px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .movies-card-list {
+    margin: 0 10px;
+  }
+
+  .movies-сard-list__container {
+    grid-row-gap: 24px;
+    padding-bottom: 46px;
+    padding-top: 52px;
+  }
+
+  .movies-card-list__button {
+    margin-bottom: 36px;
+    max-width: 240px;
+  }
+}

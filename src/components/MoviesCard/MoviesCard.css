@@ -116,3 +116,18 @@
     margin-top: 24px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .movies-card__info {
+    padding: 0;
+  }
+  
+    .movies-card__title {
+      margin-top: 14px;
+      font-size: 12px;
+    }
+  
+    .movies-card__duration {
+      margin-top: 14px;
+    }
+  }
