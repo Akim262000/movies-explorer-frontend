@@ -4,6 +4,7 @@
   justify-content: center;
   flex-direction: column;
   width: 396px;
+  /* width: 100%; */
 }
 
 .register__title {
@@ -89,5 +90,34 @@
 @media screen and (max-width: 768px) {
   .register {
     margin-top: 233px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .register {
+    width: 260px;
+    align-items: center;
+    margin-top: 56px;
+  }
+
+  .register__title {
+    margin-top: 50px;
+  }
+   
+  .register__form {
+    margin-top: 44px;
+  }
+
+  .register__input {
+    font-size: 13px;
+  }
+
+  .register__submit-button {
+    margin-top: 168px;
+    font-size: 12px;
+  }
+
+  .register__subtitle {
+    font-size: 12px;
   }
 }
