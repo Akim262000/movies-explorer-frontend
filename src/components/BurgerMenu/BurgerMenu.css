@@ -87,3 +87,23 @@
     display: none;
   }
 } */
+
+@media screen and (min-width: 320px) {
+  .burger__button-close {
+    top: 13px;
+    right: 13px;
+  }
+
+  .burger__container {
+    width: 100%;
+  }
+
+  .burger__menu {
+    margin-top: 145px;
+    gap: 18px;
+  }
+
+  .burger__button-account {
+    margin-bottom: 270px;
+  }
+}
