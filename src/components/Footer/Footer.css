@@ -69,6 +69,12 @@
     margin-right: 10px;
   }
 
+  .footer__save-movies {
+    padding-top: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
   .footer__title {
     font-size: 12px;
   }
