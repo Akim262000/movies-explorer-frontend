@@ -14,7 +14,7 @@
   background-color: #303030;
   margin-right: 10px;
   border-radius: 10px;
-  min-width: 96px;
+  min-width: 80px;
   height: 36px;
   text-align: center;
 }
@@ -36,8 +36,17 @@
   color: #fff;
 }
 
-@media screen and (max-width: 768px) {
-  .navigation__link {
+@media screen and (max-width: 320px) {
+  .navigation__list {
+    
+  }
+  
+  .navigation__item {
 
+  }
+
+  .navigation__link {
+    font-size: 10px;
+    line-height: 16px;
   }
 }

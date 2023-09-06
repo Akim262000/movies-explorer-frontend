@@ -33,3 +33,18 @@
     margin: 226px 0 312px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .intro {
+    margin-left: 14px;
+    margin-right: 14px;
+    padding-bottom: 12px;
+  }
+
+  .intro__title {
+    font-size: 29px;
+    line-height: 37px;
+    letter-spacing: -1.16px;
+    margin: 90px 0 208px;
+  }
+}

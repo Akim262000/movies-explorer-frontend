@@ -17,7 +17,7 @@
   font-weight: 500;
   font-size: 22px;
   line-height: 1.2;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.88px;
   margin: 0;
   padding: 0 0 23px;
   border-bottom: 1px solid #dadada;
@@ -32,5 +32,13 @@
 
   .content__section{
     padding: 90px 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .content__title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    padding-bottom: 28px;
   }
 }

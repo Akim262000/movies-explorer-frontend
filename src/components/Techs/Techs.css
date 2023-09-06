@@ -119,3 +119,36 @@
     margin-top: 22px;
   }
 } */
+
+@media screen and (max-width: 320px) {
+  .techs {
+    padding: 0;
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-top: 138px;
+    background-color: #202020;
+  }
+
+  .techs__header {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+  }
+
+  .techs__title {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+    margin-top: 52px;
+  }
+
+  .techs__text {
+    margin-top: 14px;
+    font-size: 11px;
+    letter-spacing: -0.44px;
+    line-height: 16px;
+  }
+
+  .techs__list {
+    grid-template-columns: 84px 84px;
+    margin-top: 50px;
+  }
+}

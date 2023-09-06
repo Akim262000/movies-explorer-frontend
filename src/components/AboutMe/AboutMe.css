@@ -103,3 +103,46 @@
     height: 307px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .student {
+    margin: 141px 14px;
+  }
+
+  .about-me {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .about-me__container {
+    margin-right: 0;
+  }
+
+  .about-me__photo-container {
+    width: 292px;
+    height: 352px;
+    margin-top: 44px;
+  }
+
+  .about-me__title {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+    margin-top: 36px;
+  }
+
+  .about-me__subtitle {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .about-me__description {
+    font-size: 11px;
+    line-height: 16px;
+    margin-top: 21px;
+  }
+
+  .about-me__contacts {
+    margin-top: 54px;
+  }
+  
+}

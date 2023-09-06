@@ -29,7 +29,7 @@
 .project__duration {
   display: grid;
   grid-template-columns: minmax(100px, 1fr) 4fr;
-  grid-template-rows: 36px 31px;
+  grid-template-rows: 36px 30px;
 }
 
 .project__line {
@@ -79,5 +79,44 @@
   .project__text {
     font-size: 12px;
     line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .project {
+    margin: 70px 18px 0;
+  }
+
+  .project__about {
+    flex-direction: column;
+    margin-top: 63px;
+    margin-bottom: 62px;
+  }
+
+  .project__duration {
+    grid-template-rows: 34px 26px;
+  }
+
+  .project__description {
+    margin-bottom: 60px;
+  }
+
+  .project__description:last-child {
+    margin-bottom: 0;
+  }
+
+  .project__title {
+    font-size: 18px;
+    letter-spacing: -0.72;
+    margin-bottom: 15px;
+  }
+
+  .project__text {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .project__line {
+    font-size: 11px;
   }
 }
