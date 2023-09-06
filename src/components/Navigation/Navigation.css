@@ -76,13 +76,13 @@
 }
 
 @media screen and (max-width: 768px) {
-  /* .navigation-menu__link {
+  .navigation-menu__link {
     display: none;
   }
 
   .navigation-menu__button {
     display: none;
-  } */
+  }
 
   .navigation-menu__button-account {
     display: none;

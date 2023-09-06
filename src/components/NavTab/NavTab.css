@@ -28,7 +28,7 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  width: 100%;
+  width: 96px;
   height: 100%;
   line-height: 16px;
   font-size: 12px;
@@ -36,15 +36,13 @@
   color: #fff;
 }
 
+@media screen and (max-width: 768px) {
+  .navigation__link {
+    width: 96px;
+  }
+}
+
 @media screen and (max-width: 320px) {
-  .navigation__list {
-    
-  }
-  
-  .navigation__item {
-
-  }
-
   .navigation__link {
     font-size: 10px;
     line-height: 16px;

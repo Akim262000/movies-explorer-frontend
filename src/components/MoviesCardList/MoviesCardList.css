@@ -27,6 +27,12 @@
   border-radius: 6px;
   font-size: 12px;
   font-weight: 500;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.movies-card-list__button:hover {
+  opacity: 0.8;
 }
 
 .movies-card-list__button_type_hidden {
