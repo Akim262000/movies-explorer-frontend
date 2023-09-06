@@ -120,7 +120,7 @@
   }
 } */
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 400px) {
   .techs {
     padding: 0;
     margin-left: 18px;

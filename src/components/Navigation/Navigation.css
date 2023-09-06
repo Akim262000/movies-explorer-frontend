@@ -76,9 +76,13 @@
 }
 
 @media screen and (max-width: 768px) {
-  .navigation-menu__link {
+  /* .navigation-menu__link {
     display: none;
   }
+
+  .navigation-menu__button {
+    display: none;
+  } */
 
   .navigation-menu__button-account {
     display: none;
@@ -86,5 +90,19 @@
 
   .navigation-menu__button-burger {
     display: block;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .navigation-menu__link {
+    font-size: 10px;
+    line-height: 16px;
+    margin-right: 14px;
+  }
+
+  .navigation-menu__button {
+    font-size: 10px;
+    width: 54px;
+    height: 26px;
   }
 }

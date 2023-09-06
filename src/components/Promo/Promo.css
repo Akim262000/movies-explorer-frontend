@@ -7,6 +7,7 @@
   align-items: center;
   flex-direction: column;
   margin: 0 40px;
+  border-radius: 10px;
 }
 
 .intro__title {
@@ -45,6 +46,6 @@
     font-size: 29px;
     line-height: 37px;
     letter-spacing: -1.16px;
-    margin: 90px 0 208px;
+    margin: 88px 0 208px;
   }
 }

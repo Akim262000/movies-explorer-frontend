@@ -54,10 +54,39 @@
 @media screen and (max-width: 768px) {
   .portfolio {
     margin: 90px 50px 0;
+    padding-bottom: 26px;
   }
 
   .portfolio__subtitle {
     font-size: 28px;
     letter-spacing: -1.12px;
+  }
+
+  .portfolio__project {
+    border-bottom: 1px solid #e6e6e6;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .portfolio {
+    margin: 0 15px 0;
+  }
+
+  .portfolio__projects {
+    margin-top: 42px;
+  }
+
+  .portfolio__title {
+    font-size: 14px;
+  }
+
+  .portfolio__subtitle {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    line-height: 28px;
+  }
+
+  .portfolio__link {
+    width: 12px;
   }
 }
