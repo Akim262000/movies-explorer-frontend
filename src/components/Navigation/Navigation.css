@@ -105,4 +105,9 @@
     width: 54px;
     height: 26px;
   }
+
+  .navigation-menu__button-burger {
+    width: 30px;
+    margin-right: 10px;
+  }
 }

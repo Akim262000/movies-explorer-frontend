@@ -102,3 +102,23 @@ color: #ee3465;
     margin-bottom: 269px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .profile__container {
+    width: 260px;
+    margin-top: 46px;
+  }
+
+  .profile__form {
+    margin-top: 66px;
+  }
+
+  .profile__button_type_edit {
+    margin-top: 365px;
+    font-size: 12px;
+  }
+
+  .profile__link {
+    font-size: 12px;
+  }
+}
