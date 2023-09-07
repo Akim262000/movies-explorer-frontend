@@ -71,8 +71,13 @@
   text-align: center;
   padding: 13px 0 15px;
   margin-top: 168px;
+  cursor: pointer;
+  transition: .3s ease;
 }
 
+.login__submit-button:hover {
+  opacity: .8;
+}
 .login__subtitle {
   font-weight: 400;
   font-size: 14px;
