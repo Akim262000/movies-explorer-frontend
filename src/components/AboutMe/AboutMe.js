@@ -17,7 +17,7 @@ function AboutMe() {
           </div>
           <ul className="about-me__contacts">
             <li className="about-me__contact">
-              <a className="about-me__link app__link-outside" href="https://github.com/Akim262000">
+              <a className="about-me__link app__link-outside" href="https://github.com/Akim262000" target="_blank" rel="noopener noreferrer">
                 Github
               </a>
             </li>

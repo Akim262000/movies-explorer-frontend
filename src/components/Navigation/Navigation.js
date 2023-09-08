@@ -29,7 +29,8 @@ function Navigation({isLoggedIn}) {
           <Link to="/signup" className="navigation-menu__link app__link">Регистрация</Link>
           <Link to="/signin" className="navigation-menu__button app__link">Войти</Link>
         </div>)}
-        {!isBurgerMenuOpen && isLoggedIn ? (
+        {/* {!isBurgerMenuOpen && isLoggedIn ? ( */}
+        {!isBurgerMenuOpen ? (
         <button className='navigation-menu__button-burger' onClick={toggleBurgerMenu} />
       ) : <BurgerMenu onClose={toggleBurgerMenu} />
       }

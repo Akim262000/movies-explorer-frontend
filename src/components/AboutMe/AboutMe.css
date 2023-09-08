@@ -53,6 +53,12 @@
 .about-me__link {
   font-weight: 500;
   font-size: 14px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.about-me__link:hover {
+  opacity: .8;
 }
 
 .about-me__photo-container {
