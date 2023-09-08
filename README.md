@@ -1,3 +1,3 @@
 # movies-explorer-frontend
 
-[Ссылка на макет dark-2: ](https://www.figma.com/file/RkaaPCZpQD2QDK1BUDRSpV/light-1-(Copy)?mode=dev)
+[Ссылка на макет ](https://www.figma.com/file/Xz20jRmhzcw6Puy7pmD2aW/dark-2?type=design&node-id=1-7266&mode=dev)
