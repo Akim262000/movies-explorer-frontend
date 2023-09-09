@@ -29,6 +29,7 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
+  transition: opacity 0.3s ease-in;
 }
 
 .navigation-menu__button {
@@ -62,6 +63,7 @@
   border: none;
   cursor: pointer;
   margin: 0;
+  transition: opacity 0.3s ease-in;
 }
 
 .navigation-menu__button-burger {
@@ -73,6 +75,7 @@
   border: none;
   cursor: pointer;
   background-position: center;
+  transition: opacity 0.3s ease-in;
 }
 
 @media screen and (max-width: 768px) {

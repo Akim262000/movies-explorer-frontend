@@ -32,6 +32,11 @@
   padding-left: 20px;
 }
 
+.search-form__input:focus{
+  outline: none;
+  border: 1.5px solid #41ce34;
+}
+
 .search-form__button {
 background-image: url('../../images/button-find.svg');
 width: 44px;
@@ -41,6 +46,7 @@ border-radius: 8px;
 border: none;
 margin-left: 10px;
 cursor: pointer;
+transition: opacity 0.3s ease-in;
 }
 
 .search-form__filter-container {

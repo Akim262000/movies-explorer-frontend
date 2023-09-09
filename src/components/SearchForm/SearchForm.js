@@ -13,7 +13,7 @@ function SearchForm() {
     <div className="search-form">
       <form className="search-form__form">
         <div className="search-form__search-container">
-        <input className="search-form__input" type="text" placeholder="Фильм"></input>
+        <input className="search-form__input" type="text" placeholder="Фильм" required></input>
         <button className="search-form__button"></button>
         </div>
          <div className="search-form__filter-container">

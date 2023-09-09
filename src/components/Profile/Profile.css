@@ -59,6 +59,7 @@
   background-color: transparent;
   font-size: 13px;
   color: #fff;
+  cursor: pointer;
 }
 
 .profile__button_type_edit {

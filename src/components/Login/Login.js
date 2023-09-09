@@ -9,12 +9,12 @@ function Login() {
       <h2 className="login__title">Рады видеть!</h2>
       <form className="login__form">
         <label className="login__label">E-mail
-          <input className="login__input" id="email" type="email" name="login" minLength="2" maxLength="30" required/>
+          <input className="login__input" id="email" type="email" name="login" minLength="2" maxLength="30" placeholder="Email" required/>
           <span className="login__error" id="email-error"></span>
         </label>
 
         <label className="login__label">Пароль
-          <input className="login__input" id="password" type="password" name="password" minLength="4" maxLength="20" required/>
+          <input className="login__input" id="password" type="password" name="password" minLength="4" maxLength="20" placeholder="Пароль" required/>
           <span className="login__error" id="password-error"></span>
         </label>
 

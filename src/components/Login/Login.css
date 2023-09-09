@@ -43,6 +43,15 @@
   width: 100%;
 }
 
+.login__input:focus{
+  outline: none;
+  border: 1px solid  #2cdb2c ;
+}
+
+.login__input:invalid{
+  border: 1px solid  #FF4062 ;
+}
+
 .entrance__input:focus{
   outline: none;
   border-bottom: 1px solid  #000 ;
