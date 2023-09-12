@@ -1,0 +1,116 @@
+.navigation-menu {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+}
+
+.navigation-menu__container-movies {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  margin-left: 80px;
+}
+
+.navigation-menu__container-auth {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 100%;
+}
+
+.navigation-menu__link {
+  text-decoration: none;
+  color: white;
+  margin-right: 31px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  transition: opacity 0.3s ease-in;
+}
+
+.navigation-menu__button {
+  text-decoration: none;
+  color: #000;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  width: 76px;
+  height: 32px;
+  background-color: #3ddc84;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation-menu__button-account {
+  width: 100px;
+  height: 32px;
+  color: #fff;
+  background-color: #313131;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.navigation-menu__button-burger {
+  background-image: url('../../images/button-burger.svg');
+  width: 50px;
+  height: 44px;
+  background-color: #202020;
+  display: none;
+  border: none;
+  cursor: pointer;
+  background-position: center;
+  transition: opacity 0.3s ease-in;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation-menu__link {
+    display: none;
+  }
+
+  .navigation-menu__button {
+    display: none;
+  }
+
+  .navigation-menu__button-account {
+    display: none;
+  }
+
+  .navigation-menu__button-burger {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .navigation-menu__link {
+    font-size: 10px;
+    line-height: 16px;
+    margin-right: 14px;
+  }
+
+  .navigation-menu__button {
+    font-size: 10px;
+    width: 54px;
+    height: 26px;
+  }
+
+  .navigation-menu__button-burger {
+    width: 30px;
+    margin-right: 10px;
+  }
+}

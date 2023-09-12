@@ -1,0 +1,138 @@
+.search-form {
+  box-sizing: border-box;
+  padding: 62px 0 0;
+  margin: 0 70px;
+  border-bottom: 1px solid #424242;
+}
+
+.search-form__form {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-form__search-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.search-form__input {
+  width: 100%;
+  height: 44px;
+  background-color: #2f2f2f;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  padding-left: 20px;
+}
+
+.search-form__input:focus{
+  outline: none;
+  border: 1.5px solid #41ce34;
+}
+
+.search-form__button {
+background-image: url('../../images/button-find.svg');
+width: 44px;
+height: 44px;
+background-repeat: no-repeat;
+border-radius: 8px;
+border: none;
+margin-left: 10px;
+cursor: pointer;
+transition: opacity 0.3s ease-in;
+}
+
+.search-form__filter-container {
+  display: flex;
+  align-items: center;
+  height: 16px;
+  margin-top: 34px;
+  margin-bottom: 38px;
+}
+
+.search-form__radio {
+  position: absolute;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  z-index: 3;
+}
+
+.search-form__filter-name {
+  margin-left: 12px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 0;
+}
+
+.search-form__filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  height: 16px;
+  width: 36px;
+  margin: 0;
+  background-color: #c4c4c4;
+  border-radius: 20px;
+  padding: 6px;
+  position: relative;
+  transition: transform .3s ease-in;
+}
+
+.search-form__filter_active {
+  background-color: #2BE080;
+}
+
+.search-form__switch {
+  box-sizing: border-box;
+  height: 8px;
+  width: 8px;
+  background-color: #ebebeb;
+  border-radius: 50%;
+  position: relative;
+  left: 0;
+  z-index: 2;
+}
+
+.search-form__radio:checked ~ .search-form__switch{
+  left: 0;
+}
+
+.search-form__radio ~ :checked ~ .search-form__switch{
+  left: 16px;
+}
+
+.search-form__filter .search-form__radio:checked{
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .search-form {
+    margin: 0 30px;
+  }
+
+  .search-form__filter-container {
+    margin-top: 42px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .search-form {
+    margin: 0 14px;
+    padding-top: 56px;
+  }
+
+  .search-form__filter-container {
+    margin-top: 48px;
+  }
+}

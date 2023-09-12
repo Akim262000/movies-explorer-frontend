@@ -1,0 +1,44 @@
+.content{
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.content__section{
+  box-sizing: border-box;
+  padding: 110px 30px;
+}
+
+.content__section-about-me {
+  padding: 0;
+  padding: 110px 30px 100px;
+}
+
+.content__title{
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.88px;
+  margin: 0;
+  padding: 0 0 23px;
+  border-bottom: 1px solid #dadada;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .content__section {
+  padding: 0;
+  }
+
+  .content__section{
+    padding: 90px 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .content__title {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    padding-bottom: 28px;
+  }
+}

@@ -1,0 +1,56 @@
+.not-found__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  margin: 246px auto;
+}
+
+.not-found__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found__status {
+  font-size: 140px;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 5px;
+}
+
+.not-found__message {
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 400;
+}
+
+.not-found__link {
+  margin-top: 184px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4285f4;
+  transition: opacity 0.3s ease-in;
+}
+
+@media screen and (max-width: 320px) {
+  .not-found__container {
+    margin-top: 330px;
+    margin-bottom: 0;
+  }
+
+  .not-found__status {
+    font-size: 80px;
+    margin-bottom: 7px;
+  }
+
+  .not-found__message {
+    font-size: 12px;
+  }
+
+  .not-found__link {
+    font-size: 12px;
+    margin-top: 284px;
+  }
+}

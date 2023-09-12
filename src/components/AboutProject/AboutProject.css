@@ -1,0 +1,146 @@
+.project {
+  margin: 110px 70px 0;
+}
+
+.project__about {
+  display: flex;
+  justify-content: space-between;
+  margin: 72px 0 110px;
+}
+
+.project__description {
+  max-width: 550px;
+}
+
+.project__title {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.8px;
+  margin:0 0 26px 0;
+}
+
+.project__text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.project__duration {
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) 4fr;
+  grid-template-rows: 36px 30px;
+}
+
+.project__line {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project__line_type_short {
+  background-color: #3ddc84;
+  color: #000;
+}
+
+.project__line_type_long {
+  background-color: #303030;
+  color: #fff;
+}
+
+.project__part {
+  font-weight: 500;
+  color: #8b8b8b;
+  font-size: 14px;
+  line-height: 17px;
+  align-items: flex-end;
+}
+
+@media screen and (max-width: 1150px) {
+  .project__description {
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 868px) {
+  .project {
+    margin: 90px 50px 0;
+  }
+
+  .project__about {
+    margin-bottom: 94px;
+  }
+
+  .project__description {
+    max-width: 320px;
+  }
+
+  .project__title {
+    margin-bottom: 22px;
+  }
+
+  .project__text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .project__about {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project__description {
+    margin-bottom: 50px;
+    max-width: 380px;
+  }
+
+  .project__description:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+@media screen and (max-width: 530px) {
+  .project {
+    margin: 70px 18px 0;
+  }
+
+  .project__about {
+    flex-direction: column;
+    margin-top: 63px;
+    margin-bottom: 62px;
+    align-items: center;
+  }
+
+  .project__duration {
+    grid-template-rows: 34px 26px;
+  }
+
+  .project__description {
+    margin-bottom: 60px;
+  }
+
+  .project__description:last-child {
+    margin-bottom: 0;
+  }
+
+  .project__title {
+    font-size: 18px;
+    letter-spacing: -0.72;
+    margin-bottom: 15px;
+  }
+
+  .project__text {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .project__line {
+    font-size: 11px;
+  }
+}
