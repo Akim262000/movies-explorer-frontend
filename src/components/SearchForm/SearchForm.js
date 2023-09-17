@@ -1,39 +1,44 @@
 import React from "react";
 import "./SearchForm.css";
 
-function SearchForm() {
+function SearchForm(props) {
 
-  const [shortFilms, setShortFilms] = React.useState('on');
+  const [value, setValue] = React.useState('');
 	
-	function changeHandler(event) {
-		setShortFilms(event.target.value);
-	}
+	function handleChangeValue(e) {
+    setValue(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.onSearchClick(value);
+  } 
 
   return (
     <div className="search-form">
-      <form className="search-form__form">
+      <form className="search-form__form" onSubmit={handleSubmit}>
         <div className="search-form__search-container">
-        <input className="search-form__input" type="text" placeholder="Фильм" required></input>
+        <input className="search-form__input" type="text" placeholder="Фильм" value={value} onChange={handleChangeValue} required></input>
         <button className="search-form__button"></button>
         </div>
          <div className="search-form__filter-container">
           <label className={`search-form__filter
-          ${shortFilms === 'on' ? 'search-form__filter_active' : null}`}>
+          ${props.shortFilms === 'on' ? 'search-form__filter_active' : null}`}>
             <input
               className="search-form__radio search-form__radio_off"
               type="radio"
               name="shortFilms"
               value="off"
-              checked={shortFilms === "off" ? true : false}
-              onChange={changeHandler}
+              checked={props.shortFilms === "off" ? true : false}
+              onChange={props.onCheckbox}
             ></input>
             <input
               className="search-form__radio search-form__radio_on"
               type="radio"
               name="shortFilms"
               value="on"
-              checked={shortFilms === "on" ? true : false}
-              onChange={changeHandler}
+              checked={props.shortFilms === "on" ? true : false}
+              onChange={props.onCheckbox}
             ></input>
             <span className="search-form__switch"></span>
           </label>

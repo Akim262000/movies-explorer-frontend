@@ -21,9 +21,6 @@
   max-width: 240px;
   margin-bottom: 0;
   margin-top: 10px;
-  /* text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden; */
 }
 
 .movies-card__duration {
