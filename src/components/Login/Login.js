@@ -34,7 +34,7 @@ function Login({onLogin}) {
         </label>
 
         <label className="login__label">Пароль
-          <input className="login__input" id="password" type="password" name="password" autoComplete="password" minLength="4" maxLength="20" placeholder="Пароль" value={formValue.password} onChange={handleChange} required/>
+          <input className="login__input" id="password" type="password" name="password" autoComplete="password" minLength="8" maxLength="20" placeholder="Пароль" value={formValue.password} onChange={handleChange} required/>
           <span className="login__error" id="password-error"></span>
         </label>
 

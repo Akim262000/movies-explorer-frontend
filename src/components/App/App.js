@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import './App.css';
 import Main from '../Main/Main';
 import Movies from "../Movies/Movies";
@@ -27,14 +27,14 @@ function App() {
   const handleSignOut = () => {
     localStorage.removeItem('jwt');
     setIsLoggedIn(false);
-    navigate('/sign-in');
+    navigate('/signin');
   };
 
   const handleRegistration = (data) => {
     return register(data)
     .then(() => {
       setIsSuccessRegistration(true);
-      navigate('/sign-in');
+      navigate('/signin');
     })
     .catch((err) => {
       console.log(err);
@@ -45,9 +45,9 @@ function App() {
   const handleAuthorization = (data) => {
     return authorize(data)
       .then((data) => {
-        setIsLoggedIn(true);
         localStorage.setItem('jwt', data.token);
         tokenCheck();
+        setIsLoggedIn(true);
         navigate('/');
       })
       .catch((err) => {
@@ -98,12 +98,28 @@ function App() {
 
         <Route
           path="/profile"
-          element={<ProtectedRoute component={Profile} isLoggedIn={isLoggedIn} onSignOut={handleSignOut} />}
+          element={<ProtectedRoute component={Profile} isLoggedIn={isLoggedIn} currentUser={currentUser} onSignOut={handleSignOut} />}
         />
 
         <Route path="/signup" element={<Register onRegister={handleRegistration} />} />
 
         <Route path="/signin" element={<Login onLogin={handleAuthorization} />} />
+
+        <Route exact path='/movies' element=
+            {isLoggedIn ? <Navigate to='/movies' /> : <Navigate to='/' />}>
+          </Route>
+          <Route exact path='/saved-movies' element=
+            {isLoggedIn ? <Navigate to='/saved-movies' /> : <Navigate to='/' />}>
+          </Route>
+          <Route exact path='/profile' element=
+            {isLoggedIn ? <Navigate to='/profile' /> : <Navigate to='/' />}>
+          </Route>
+          <Route exact path='/signup' element=
+            {!isLoggedIn ? <Navigate to='/signup' /> : <Navigate to='/' />}>
+          </Route>
+          <Route exact path='/signin' element=
+            {!isLoggedIn ? <Navigate to='/signin' /> : <Navigate to='/' />}>
+          </Route>
 
         <Route path="*" element={<NotFound />} />
 
