@@ -8,7 +8,7 @@ import { filterMovies, filterShortMovies, changeMovies} from '../../utils/utils'
 import moviesApi from '../../utils/MoviesApi';
 
 
-function Movies(props) {
+function Movies(props, {isLoggedIn}) {
 
   const forCheckbox = localStorage.getItem('shortFilms') === 'on' ? 'on' : 'off';
 
@@ -67,7 +67,7 @@ function Movies(props) {
 
   return (
     <section className="movies">
-      <Header/>
+      <Header isLoggedIn={isLoggedIn}/>
       <SearchForm onSearchClick={handleSearchSubmit} onCheckbox={handleCheckbox} shortFilms={shortFilms} />
       <MoviesCardList list={filteredMovies}/>
       <Footer />

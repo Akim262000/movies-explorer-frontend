@@ -5,7 +5,7 @@ import Header from "../Header/Header";
 const name = "Виталий";
 const email = "pochta@yandex.ru";
 
-function Profile({isLoggedIn}) {
+function Profile({isLoggedIn, onSignOut}) {
   return (
     <>
     <section className="profile">
@@ -23,7 +23,7 @@ function Profile({isLoggedIn}) {
           </label>
           <button className="profile__button profile__button_type_edit app__link">Редактировать</button>
           <button className="profile__button profile__button_type_exit">
-            <Link className="profile__link app__link" to="/">Выйти из аккаунта</Link>
+            <Link className="profile__link app__link" to="/" onClick={() => onSignOut()}>Выйти из аккаунта</Link>
           </button>
         </form>
       </div>
