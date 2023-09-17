@@ -12,8 +12,18 @@ export function filterMovies(movies, searchQuery, shortFilms) {
   return moviesByUserQuery;
 }
 
-export function filterShortMovies(movies, shortFilms = 'off'){
+export function filterShortMovies(movies){
   return movies.filter((item) => {
     return item.duration < 40;
   })
+}
+
+export function changeMovies(movies) {
+  movies.forEach(movie => {
+    if(!movie.image){
+      movie.image = "https://i.pinimg.com/originals/95/e7/ec/95e7ec6b98c3cc762bdeb6179b779ca1.jpg"
+    } else {
+      movie.image = `https://api.nomoreparties.co${movie.image.url}`
+    }
+  });
 }

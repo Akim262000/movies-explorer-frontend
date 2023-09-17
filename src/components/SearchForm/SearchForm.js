@@ -14,6 +14,13 @@ function SearchForm(props) {
     props.onSearchClick(value);
   } 
 
+  React.useEffect(() => {
+    const input = localStorage.getItem('searchQuery');
+    if(input){
+      setValue(input);
+    }
+  }, [])
+
   return (
     <div className="search-form">
       <form className="search-form__form" onSubmit={handleSubmit}>
