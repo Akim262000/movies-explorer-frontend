@@ -9,21 +9,30 @@ import Login from "../Login/Login";
 import { saveList } from '../../utils/data'
 import React from 'react';
 import NotFound from '../NotFound/NotFouns';
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = React.useState(true);
 
   return (
-    <div className='app'> 
+    <CurrentUserContext.Provider>
+      <div className='app'> 
       <Routes>
         <Route path="/" element={<Main isLoggedIn={isLoggedIn}/>} />
 
-        <Route path="/movies" element={<Movies isLoggedIn={isLoggedIn} />} />
+        <Route
+            path="/movies"
+            element={<ProtectedRoute component={Movies} isLoggedIn={isLoggedIn} />}
+          />
 
-        <Route path="/saved-movies" element={<SavedMovies isLoggedIn={isLoggedIn} list={saveList}/>} />
+        <Route path="/saved-movies" element={<ProtectedRoute component={SavedMovies} isLoggedIn={isLoggedIn} list={saveList} />} />
 
-        <Route path="/profile" element={<Profile isLoggedIn={isLoggedIn} />} />
+        <Route
+          path="/profile"
+          element={<ProtectedRoute component={Profile} isLoggedIn={isLoggedIn} />}
+        />
 
         <Route path="/signup" element={<Register />} />
 
@@ -34,6 +43,7 @@ function App() {
       </Routes>
 
     </div>
+    </CurrentUserContext.Provider>
   );
 }
 
