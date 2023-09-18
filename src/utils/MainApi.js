@@ -1,4 +1,4 @@
-export const base_url = 'http://localhost:4000';
+export const BASE_URL = 'http://localhost:4000';
 
 // export const base_url = 'https://api.movie-may.nomoredomainsicu.ru';
 
@@ -17,7 +17,7 @@ const headers = {
 };
 
 export const register = ({ name, email, password }) => {
-  return fetch(`${base_url}/signup`, {
+  return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
     headers,
     body: JSON.stringify({ name, email, password }),
@@ -25,7 +25,7 @@ export const register = ({ name, email, password }) => {
 };
 
 export const authorize = ({ email, password }) => {
-  return fetch(`${base_url}/signin`, {
+  return fetch(`${BASE_URL}/signin`, {
     method: 'POST',
     headers,
     body: JSON.stringify({ email, password }),
@@ -33,11 +33,68 @@ export const authorize = ({ email, password }) => {
 };
 
 export const getContent = (token) => {
-  return fetch(`${base_url}/users/me`, {
+  return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {
       ...headers,
       Authorization: `Bearer ${token}`,
+    },
+  }).then((res) => checkResponse(res));
+};
+
+export const updateUserInfo = (data, jwt) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: 'PATCH',
+    headers: {
+      ...headers,
+      'Authorization': `Bearer ${jwt}`,
+    },
+    body: JSON.stringify({
+      name: data.name,
+      email: data.email,
+    }),
+  }).then((res) => checkResponse(res));
+};
+
+export const getSavedMovies = (jwt) => {
+  return fetch(`${BASE_URL}/movies`, {
+    method: 'GET',
+    headers: {
+      ...headers,
+      'Authorization': `Bearer ${jwt}`,
+    }
+  }).then((res) => checkResponse(res));
+};
+
+export const saveMovie = (movie, jwt) => {
+  return fetch(`${BASE_URL}/movies`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Authorization': `Bearer ${jwt}`,
+    },
+    body: JSON.stringify({
+      country: movie.country,
+      director: movie.director,
+      duration: movie.duration,
+      year: movie.year,
+      description: movie.description,
+      image: 'https://api.nomoreparties.co/' + movie.image.url,
+      trailerLink: movie.trailerLink,
+      thumbnail: 'https://api.nomoreparties.co/' + movie.image.formats.thumbnail.url,
+      movieId: movie.id,
+      nameRU: movie.nameRU || movie.nameEN,
+      nameEN: movie.nameEN || movie.nameRU,
+    }),
+  }).then((res) => checkResponse(res));
+};
+
+export const deleteMovie = (id, jwt) => {
+  return fetch(`${BASE_URL}/movies/${id}`, {
+    method: 'DELETE',
+    headers: {
+      ...headers,
+      'Authorization': `Bearer ${jwt}`,
     },
   }).then((res) => checkResponse(res));
 };
