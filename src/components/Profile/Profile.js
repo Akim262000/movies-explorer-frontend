@@ -4,9 +4,6 @@ import Header from "../Header/Header";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import React, { useContext } from "react";
 
-const name = "Виталий";
-const email = "pochta@yandex.ru";
-
 function Profile({isLoggedIn, onSignOut, onUpdateUser}) {
 
   const currentUser = useContext(CurrentUserContext);
@@ -41,8 +38,8 @@ function Profile({isLoggedIn, onSignOut, onUpdateUser}) {
     [setEnteredValues, setErrors, setIsFormValid]
   );
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
     onUpdateUser({
       name: enteredValues.name,
@@ -63,7 +60,7 @@ function Profile({isLoggedIn, onSignOut, onUpdateUser}) {
     <Header isLoggedIn={isLoggedIn} />
       <div className="profile__container">
         <h2 className="profile__title">Привет, {currentUser.name}!</h2>
-        <form className="profile__form">
+        <form className="profile__form" onSubmit={handleSubmit}>
           <label className="profile__label">Имя
             <input className="profile__input" value={enteredValues.name || ""} type="text" name="name" id="name" minLength="2" maxLength="30" onChange={handleChange} required ></input>
             <span className="profile__error" id="name-error"></span>
@@ -72,7 +69,7 @@ function Profile({isLoggedIn, onSignOut, onUpdateUser}) {
             <input className="profile__input" value={enteredValues.email || ""} type="email" name="email" id="email" minLength="2" maxLength="30" onChange={handleChange} required ></input>
             <span className="profile__error" id="email-error"></span>
           </label>
-          <button className="profile__button profile__button_type_edit app__link">Редактировать</button>
+          <button className="profile__button profile__button_type_edit app__link" disabled={isValueSameAsWas}>Редактировать</button>
           <button className="profile__button profile__button_type_exit">
             <Link className="profile__link app__link" to="/" onClick={() => onSignOut()}>Выйти из аккаунта</Link>
           </button>
