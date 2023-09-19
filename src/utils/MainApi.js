@@ -16,6 +16,23 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
+ //метод получения информации о пользователе с сервера
+ export const getUserData = (token) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    headers: {
+      ...headers,
+      Authorization: `Bearer ${token}`,
+    },
+    credentials: 'include',
+  })
+  .then(res => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  })
+};
+
 export const register = ({ name, email, password }) => {
   return fetch(`${BASE_URL}/signup`, {
     method: 'POST',
@@ -56,45 +73,81 @@ export const updateUserInfo = (data, jwt) => {
   }).then((res) => checkResponse(res));
 };
 
-export const getSavedMovies = (jwt) => {
+// метод получения избранных пользователем фильмов с сервера
+export const getUsersMovies = (token) => {
   return fetch(`${BASE_URL}/movies`, {
     method: 'GET',
     headers: {
       ...headers,
-      'Authorization': `Bearer ${jwt}`,
+      Authorization: `Bearer ${token}`,
+    },
+    credentials: 'include',
+  })
+  .then(res => {
+    if (res.ok) {
+      return res.json();
     }
-  }).then((res) => checkResponse(res));
+    return Promise.reject(`Ошибка: ${res.status}`);
+  })
 };
-
-export const saveMovie = (movie, jwt) => {
+// метод добавления нового фильма в избранное (создание карточки)
+export const saveNewMovie =({
+  token,
+  country,
+  director,
+  duration,
+  year,
+  description,
+  image,
+  trailerLink,
+  nameRU,
+  nameEN,
+  thumbnail,
+  id,
+}) => {
   return fetch(`${BASE_URL}/movies`, {
     method: 'POST',
     headers: {
       ...headers,
-      'Authorization': `Bearer ${jwt}`,
+      Authorization: `Bearer ${token}`,
     },
+    credentials: 'include',
     body: JSON.stringify({
-      country: movie.country,
-      director: movie.director,
-      duration: movie.duration,
-      year: movie.year,
-      description: movie.description,
-      image: 'https://api.nomoreparties.co/' + movie.image.url,
-      trailerLink: movie.trailerLink,
-      thumbnail: 'https://api.nomoreparties.co/' + movie.image.formats.thumbnail.url,
-      movieId: movie.id,
-      nameRU: movie.nameRU || movie.nameEN,
-      nameEN: movie.nameEN || movie.nameRU,
-    }),
-  }).then((res) => checkResponse(res));
+      country: country || 'no country',
+      director,
+      duration,
+      year,
+      description,
+      image,
+      trailer: trailerLink,
+      nameRU: nameRU || 'no name',
+      nameEN: nameEN || 'no name',
+      thumbnail,
+      movieId: id,
+    })
+  })
+  .then(res => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  })
 };
 
-export const deleteMovie = (id, jwt) => {
-  return fetch(`${BASE_URL}/movies/${id}`, {
+//метод удаления карточки пользователя с сервера
+export const deleteMovie = (token, movieId) => {
+  return fetch(`${BASE_URL}/movies/${movieId}`, {
     method: 'DELETE',
     headers: {
       ...headers,
-      'Authorization': `Bearer ${jwt}`,
+      Authorization: `Bearer ${token}`,
     },
-  }).then((res) => checkResponse(res));
+    credentials: 'include',
+  })
+  .then(res => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(`Ошибка: ${res.status}`);
+  })
 };

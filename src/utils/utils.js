@@ -18,6 +18,12 @@ export function filterShortMovies(movies){
   })
 }
 
+export function getSavedMovieCard(arr, id) {
+  return arr.find((item) => {
+    return item.movieId === id;
+  })
+}
+
 export function changeMovies(movies) {
   movies.forEach(movie => {
     if(!movie.image){
