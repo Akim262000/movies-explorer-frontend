@@ -8,7 +8,7 @@ import { filterMovies, filterShortMovies, changeMovies} from '../../utils/utils'
 import moviesApi from '../../utils/MoviesApi';
 
 
-function Movies(props, {isLoggedIn}) {
+function Movies({isLoggedIn}) {
 
   const forCheckbox = localStorage.getItem('shortFilms') === 'on' ? 'on' : 'off';
 
