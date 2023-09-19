@@ -32,6 +32,10 @@ function App() {
     navigate("/signin");
   };
 
+  const handleLoggedIn = () => {
+    setIsLoggedIn(true);
+  }
+
   const handleRegistration = (data) => {
     return register(data)
       .then(() => {
@@ -45,6 +49,7 @@ function App() {
   };
 
   const handleAuthorization = (data) => {
+    setIsLoading(true);
     return authorize(data)
       .then((data) => {
         localStorage.setItem("jwt", data.token);
@@ -75,11 +80,6 @@ function App() {
       })
       .catch(err => console.log(err))
   };
-
-
-  const handleLoggedIn = () => {
-    setIsLoggedIn(true);
-  }
   
   const tokenCheck = () => {
     const jwt = localStorage.getItem("jwt");
@@ -152,6 +152,9 @@ function App() {
           <Route path="/signup" element={<Register onRegister={handleRegistration} />} />
 
           <Route path="/signin" element={<Login onLogin={handleAuthorization} />} />
+
+          <Route exact path="/signup" element={!isLoggedIn ? <Navigate to="/signup" /> : <Navigate to="/" />}></Route>
+          <Route exact path="/signin" element={!isLoggedIn ? <Navigate to="/signin" /> : <Navigate to="/" />}></Route>
 
           {/* <Route exact path="/movies" element={isLoggedIn ? <Navigate to="/movies" /> : <Navigate to="/" />}></Route>
           <Route exact path="/saved-movies" element={isLoggedIn ? <Navigate to="/saved-movies" /> : <Navigate to="/" />}></Route>
