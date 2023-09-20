@@ -178,9 +178,9 @@ function App() {
             element={<ProtectedRoute component={Profile} isLoggedIn={isLoggedIn} onSignOut={handleSignOut} updateUser={handleUpdateUser} infoMessage={infoMessage}/>}
           />
 
-          <Route path="/signup" element={<Register onRegister={handleRegistration} />} />
+          <Route path="/signup" element={<Register onRegister={handleRegistration} infoMessage={infoMessage}/>} />
 
-          <Route path="/signin" element={<Login onLogin={handleAuthorization} />} />
+          <Route path="/signin" element={<Login onLogin={handleAuthorization} infoMessage={infoMessage}/>} />
 
           <Route exact path="/signup" element={!isLoggedIn ? <Navigate to="/signup" /> : <Navigate to="/" />}></Route>
           <Route exact path="/signin" element={!isLoggedIn ? <Navigate to="/signin" /> : <Navigate to="/" />}></Route>
