@@ -12,7 +12,7 @@ import NotFound from "../NotFound/NotFouns";
 import Preloader from '../Preloader/Preloader'
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { register, authorize, getContent, getUsersMovies, getUserData , saveNewMovie, deleteMovie } from "../../utils/MainApi";
+import { register, authorize, getContent, getUsersMovies, getUserData , saveNewMovie, deleteMovie, updateUserInfo } from "../../utils/MainApi";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -22,6 +22,14 @@ function App() {
 
   const [isLoading, setIsLoading] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
+
+  const [isError, setIsError] = React.useState(false);
+  // состояния уведомлений пользователя 
+  const [infoMessage, setInfoMessage] = React.useState({
+    isShown: false,
+    message: '',
+    code: 200,
+  });
 
   const navigate = useNavigate();
 
@@ -102,6 +110,27 @@ function App() {
     };
 
 
+  const handleUpdateUser = (name, email) => {
+    updateUserInfo(name, email)
+    .then(data => {
+      setCurrentUser(data);
+      setInfoMessage({
+        ...infoMessage,
+        isShown: true,
+        type: 'profile',
+      });
+    })
+    .catch(({ message, statusCode }) => {
+      setInfoMessage({
+        ...infoMessage,
+        isShown: true,
+        message,
+        code: statusCode,
+        type: 'profile',
+      });
+    })
+    };
+
 
   // при логине, если получаем пользователя то обновляем стейты
   React.useEffect(() => {
@@ -146,7 +175,7 @@ function App() {
 
           <Route
             path="/profile"
-            element={<ProtectedRoute component={Profile} isLoggedIn={isLoggedIn} currentUser={currentUser} onSignOut={handleSignOut} />}
+            element={<ProtectedRoute component={Profile} isLoggedIn={isLoggedIn} onSignOut={handleSignOut} updateUser={handleUpdateUser} infoMessage={infoMessage}/>}
           />
 
           <Route path="/signup" element={<Register onRegister={handleRegistration} />} />
