@@ -24,6 +24,16 @@ export function getSavedMovieCard(arr, id) {
   })
 }
 
+export const checkResponse = (response) => {
+  return response.ok
+    ? response.json()
+    : Promise.reject(
+        new Error(`Ошибка ${response.status}: ${response.statusText}`)
+      );
+};
+
+export const BASE_URL = "http://localhost:4000";
+
 export function changeMovies(movies) {
   movies.forEach(movie => {
     if(!movie.image){

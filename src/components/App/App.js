@@ -12,10 +12,12 @@ import NotFound from "../NotFound/NotFouns";
 import Preloader from '../Preloader/Preloader'
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { register, authorize, getContent, getUsersMovies, getUserData , saveNewMovie, deleteMovie, updateUserInfo } from "../../utils/MainApi";
+import mainApi from "../../utils/MainApi";
+import * as auth from "../../utils/auth";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
   const [isSuccessRegistration, setIsSuccessRegistration] = React.useState(false);
 
   const [savedMovies, setSavedMovies] = React.useState([]);
@@ -43,7 +45,7 @@ function App() {
    // при логине, если получаем пользователя то обновляем стейты
    React.useEffect(() => {
     setIsLoading(true);
-    getUserData()
+    mainApi.getUserData()
       .then(data => {
         handleLoggedIn();
         setCurrentUser(data);
@@ -57,7 +59,7 @@ function App() {
   // при загрузке страницы получаем данные избранных пользователем фильмов
   React.useEffect(() => {
     if(isLoggedIn){
-      getUsersMovies()
+      mainApi.getUsersMovies()
       .then((data) => {
         setSavedMovies(data);
         setIsError(false);
@@ -76,7 +78,7 @@ function App() {
     setIsLoggedIn(true);
   };
   const handleRegistration = (name, email, password) => {
-    return register(name, email, password)
+    return auth.register(name, email, password)
     .then(data => {
       if(data){
         console.log(data);
@@ -94,11 +96,14 @@ function App() {
     })
   };
 
-  const handleAuthorization = (email, password) => {
+  const handleAuthorization = (data) => {
     setIsLoading(true);
-    authorize(email, password)
+    auth.authorize(data)
       .then(res => {
-        handleLoggedIn();
+        setIsLoggedIn(true);
+        localStorage.setItem("jwt", data.token);
+        mainApi._headers["Authorization"] = `Bearer ${data.token}`;
+        tokenCheck();
         navigate('/movies');
       })
       .catch(({ message, statusCode }) => {
@@ -115,7 +120,7 @@ function App() {
 
    // обработчик добавления фильма в избранное
    function handleSaveMovie(movie){
-    saveNewMovie(movie)
+    mainApi.saveNewMovie(movie)
       .then(newCard => {
         setSavedMovies([newCard, ...savedMovies]);
       })
@@ -124,7 +129,7 @@ function App() {
 
   // обработчик удаления фильма из избранного
   function handleDeleteMovie(movie){
-    deleteMovie(movie._id)
+    mainApi.deleteMovie(movie._id)
       .then(() => {
         const newMoviesList = savedMovies.filter((m) => m._id === movie._id ? false : true);
         setSavedMovies(newMoviesList);
@@ -132,29 +137,38 @@ function App() {
       .catch(err => console.log(err))
   };
   
-  // const tokenCheck = () => {
-  //   const jwt = localStorage.getItem("jwt");
-  //   // if (!jwt) {
-  //   //   return;
-  //   // }
-  //   getContent(jwt)
-  //     .then((data) => {
-  //       // setAuthorizationEmail(data.data.email);
-  //       setIsLoggedIn(true);
-  //       setCurrentUser(data);
-  //       navigate("/");
-  //     })
-  //     .catch((err) => console.log(err));
-  //     getUsersMovies(jwt)
-  //       .then((movies) => {
-  //         setSavedMovies(movies)
-  //       })
-  //       .catch((err) => console.log(err));
-  //   };
+  const tokenCheck = () => {
+    const jwt = localStorage.getItem("jwt");
+    if (!jwt) {
+      return;
+    }
+    mainApi.getUserData(jwt)
+      .then((data) => {
+        // setAuthorizationEmail(data.email);
+        setIsLoggedIn(true);
+        setCurrentUser(data);
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
+      mainApi.getUsersMovies(jwt)
+        .then((movies) => {
+          setSavedMovies(movies)
+        })
+        .catch((err) => console.log(err));
+    };
 
+    React.useEffect(() => {
+      tokenCheck();
+    }, []);
+  
+    React.useEffect(() => {
+      if (isLoggedIn) {
+        navigate("/");
+      }
+    }, [isLoggedIn]);
 
   const handleUpdateUser = (name, email) => {
-    updateUserInfo(name, email)
+    mainApi.updateUserInfo(name, email)
     .then(data => {
       setCurrentUser(data);
       setInfoMessage({
@@ -178,7 +192,7 @@ function App() {
   // при логине, если получаем пользователя то обновляем стейты
   React.useEffect(() => {
     setIsLoading(true);
-    getUserData()
+    mainApi.getUserData()
       .then(data => {
         handleLoggedIn();
         setCurrentUser(data);
@@ -192,7 +206,7 @@ function App() {
   // при загрузке страницы получаем данные избранных пользователем фильмов
   React.useEffect(() => {
     if(isLoggedIn){
-      getUsersMovies()
+      mainApi.getUsersMovies()
       .then((data) => {
         setSavedMovies(data);
         // setIsError(false);
