@@ -7,7 +7,7 @@ class MainApi {
     this._baseUrl = baseUrl;
     this._userUrl = `${this._baseUrl}/users/me`;
     this._moviesUrl = `${this._baseUrl}/movies`;
-    this._token = headers['authorization'];
+    this._headers = headers;
   }
 
   _parseResponse(res) {
