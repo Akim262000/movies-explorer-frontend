@@ -214,11 +214,11 @@ function App() {
 
           <Route path="/movies" element={<ProtectedRoute component={Movies} isLoggedIn={isLoggedIn} savedMoviesList={savedMovies} onLikeClick={handleSaveMovie} onDeleteClick={handleDeleteMovie} />} />
 
-          <Route path="/saved-movies" element={<ProtectedRoute component={SavedMovies} isLoggedIn={isLoggedIn} list={savedMovies} onDeleteClick={handleDeleteMovie}/>} />
+          <Route path="/saved-movies" element={<ProtectedRoute component={SavedMovies} isLoggedIn={isLoggedIn} list={savedMovies} onDeleteClick={handleDeleteMovie} isError={isError}/>} />
 
           <Route
             path="/profile"
-            element={<ProtectedRoute component={Profile} isLoggedIn={isLoggedIn} onSignOut={handleSignOut} updateUser={handleUpdateUser} infoMessage={infoMessage}/>}
+            element={<ProtectedRoute component={Profile} isLoggedIn={isLoggedIn} onSignOut={handleSignOut} onUpdate={handleUpdateUser} infoMessage={infoMessage}/>}
           />
 
           <Route path="/signup" element={<Register onRegister={handleRegistration} infoMessage={infoMessage}/>} />

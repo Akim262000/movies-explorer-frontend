@@ -6,7 +6,7 @@ import Header from "../Header/Header";
 import React from "react";
 import { filterMovies } from "../../utils/utils";
 
-function SavedMovies({list, isLoggedIn, onDeleteClick}) {
+function SavedMovies({list, isLoggedIn, onDeleteClick, isError}) {
 
   // состояния запросов
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -53,7 +53,8 @@ function SavedMovies({list, isLoggedIn, onDeleteClick}) {
         list={filteredMovies}
         savedMoviesPage={true}
         onDelete={onDeleteClick}
-        isEmptyList={isNothingFound}  
+        isEmptyList={isNothingFound}
+        isError={isError}  
       />
       <Footer savedMoviesPage={true}/>
     </section>

@@ -18,6 +18,7 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
 
   const [isNothingFound, setIsNothingFound] = React.useState(false);
   const [isMoviesLoaging, setIsMoviesLoaging] = React.useState(false);
+  const [isError, setIsError] = React.useState(false);
 
   function handleSetFilteredMovies(movies, query, checkbox) {
     const moviesList = filterMovies(movies, query);
@@ -40,6 +41,7 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
           handleSetFilteredMovies(data, value, shortFilms);
         })
         .catch((err) => {
+          setIsError(true);
           console.log(err);
         });
     } else {
@@ -90,6 +92,7 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
         onLike={onLikeClick}
         onDelete={onDeleteClick}
         savedMovies={savedMoviesList}
+        isError={isError}
       />
       <Footer />
     </section>

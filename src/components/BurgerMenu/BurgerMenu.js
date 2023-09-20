@@ -10,7 +10,7 @@ function BurgerMenu({onClose}) {
         <div className="burger__container">
           <button type='button' className="burger__button-close" onClick={() => onClose()}/>
           <div className="burger__menu">
-            <NavLink exact to="/" className={burgerMenuClass} onClick={() => onClose()}>Главная</NavLink>
+            <NavLink to="/" className={burgerMenuClass} onClick={() => onClose()}>Главная</NavLink>
             <NavLink to="/movies" className={burgerMenuClass} onClick={() => onClose()}>Фильмы</NavLink>
             <NavLink to="/saved-movies" className={burgerMenuClass} onClick={() => onClose()}>Сохранённые фильмы</NavLink>
           </div>

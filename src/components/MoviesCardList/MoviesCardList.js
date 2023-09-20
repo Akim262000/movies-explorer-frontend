@@ -5,7 +5,7 @@ import { getSavedMovieCard } from "../../utils/utils";
 import Preloader from "../Preloader/Preloader";
 import { useWindowWidth } from "../../hooks/windowWidth";
 
-function MoviesCardList(isLoading, list, isEmptyList, onLike, onDelete, savedMovies, savedMoviesPage) {
+function MoviesCardList(isLoading, list, isEmptyList, onLike, onDelete, savedMovies, savedMoviesPage, isError) {
   const width = useWindowWidth();
   const [showList, setShowList] = React.useState([]);
   const [cardsShowParams, setCardsShowParams] = React.useState({ sum: 0, more: 0 });
@@ -46,13 +46,7 @@ function MoviesCardList(isLoading, list, isEmptyList, onLike, onDelete, savedMov
 
   // ф-ия создания массива избранных карточек
   function getSavedMoviesPage() {
-    return list.map((item) => 
-    <MoviesCard 
-      key={item._id} 
-      card={item} 
-      savedPage={savedMoviesPage} 
-      onDelete={onDelete} 
-    />);
+    return list.map((item) => <MoviesCard key={item._id} card={item} savedPage={savedMoviesPage} onDelete={onDelete} />);
   }
 
   // ф-ия создания массива стандартных карточек
@@ -76,11 +70,15 @@ function MoviesCardList(isLoading, list, isEmptyList, onLike, onDelete, savedMov
     <section className="movies-card-list">
       {isLoading ? (
         <Preloader />
-      ) : isEmptyList ? (
-        <p>Error</p>
+      ) : (isEmptyList || isError ? (
+        <p className={`movies-card-list__message ${isError && "movies-card-list__message_type_error"}`}>
+          {isError ? `Произошла ошибка. Пожалуйста, попробуйте позже` : "Ничего не найдено"}
+        </p>
       ) : (
         <>
-          <div className="movies-сard-list__container">{savedMoviesPage ? getSavedMoviesPage() : getInitialMoviesPage()}</div>
+          <div className="movies-сard-list__container">
+            {savedMoviesPage ? getSavedMoviesPage() : getInitialMoviesPage()}
+          </div>
           <button
             className={`movies-card-list__button 
               ${(savedMoviesPage || isEmptyList || showList.length === list.length) && "movies-card-list__button_type_hidden"}`}
@@ -91,9 +89,10 @@ function MoviesCardList(isLoading, list, isEmptyList, onLike, onDelete, savedMov
             Ещё
           </button>
         </>
+      )
       )}
     </section>
   );
-}
+};
 
 export default MoviesCardList;
