@@ -40,35 +40,78 @@ function App() {
     navigate("/signin");
   };
 
-  const handleLoggedIn = () => {
-    setIsLoggedIn(true);
-  }
-
-  const handleRegistration = (data) => {
-    return register(data)
-      .then(() => {
-        setIsSuccessRegistration(true);
-        navigate("/signin");
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsSuccessRegistration(false);
-      });
-  };
-
-  const handleAuthorization = (data) => {
+   // при логине, если получаем пользователя то обновляем стейты
+   React.useEffect(() => {
     setIsLoading(true);
-    return authorize(data)
-      .then((data) => {
-        localStorage.setItem("jwt", data.token);
-        tokenCheck();
-        setIsLoggedIn(true);
-        navigate("/");
+    getUserData()
+      .then(data => {
+        handleLoggedIn();
+        setCurrentUser(data);
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
-      });
+      })
+      .finally(() => setIsLoading(false))
+  }, [isLoggedIn]);
+
+  // при загрузке страницы получаем данные избранных пользователем фильмов
+  React.useEffect(() => {
+    if(isLoggedIn){
+      getUsersMovies()
+      .then((data) => {
+        setSavedMovies(data);
+        setIsError(false);
+      })
+      .catch(err => {
+        setIsError(true);
+        console.log(err);
+      })
+    }
+  }, [isLoggedIn]);
+
+
+  // ---ОБРАБОТЧИКИ---
+  // обработчик установки стейта входа/логина пользователя
+  function handleLoggedIn() {
+    setIsLoggedIn(true);
   };
+  const handleRegistration = (name, email, password) => {
+    return register(name, email, password)
+    .then(data => {
+      if(data){
+        console.log(data);
+        handleAuthorization(data.email, password);
+      } 
+    })
+    .catch(({ message, statusCode }) => {
+      setInfoMessage({
+        ...infoMessage,
+        isShown: true,
+        message,
+        code: statusCode,
+        type: 'register',
+      });
+    })
+  };
+
+  const handleAuthorization = (email, password) => {
+    setIsLoading(true);
+    authorize(email, password)
+      .then(res => {
+        handleLoggedIn();
+        navigate('/movies');
+      })
+      .catch(({ message, statusCode }) => {
+        setInfoMessage({
+          ...infoMessage,
+          isShown: true,
+          message,
+          code: statusCode,
+          type: 'login',
+        });
+      })
+      .finally(() => setIsLoading(false))
+    };
 
    // обработчик добавления фильма в избранное
    function handleSaveMovie(movie){
@@ -89,25 +132,25 @@ function App() {
       .catch(err => console.log(err))
   };
   
-  const tokenCheck = () => {
-    const jwt = localStorage.getItem("jwt");
-    // if (!jwt) {
-    //   return;
-    // }
-    getContent(jwt)
-      .then((data) => {
-        // setAuthorizationEmail(data.data.email);
-        setIsLoggedIn(true);
-        setCurrentUser(data);
-        navigate("/");
-      })
-      .catch((err) => console.log(err));
-      getUsersMovies(jwt)
-        .then((movies) => {
-          setSavedMovies(movies)
-        })
-        .catch((err) => console.log(err));
-    };
+  // const tokenCheck = () => {
+  //   const jwt = localStorage.getItem("jwt");
+  //   // if (!jwt) {
+  //   //   return;
+  //   // }
+  //   getContent(jwt)
+  //     .then((data) => {
+  //       // setAuthorizationEmail(data.data.email);
+  //       setIsLoggedIn(true);
+  //       setCurrentUser(data);
+  //       navigate("/");
+  //     })
+  //     .catch((err) => console.log(err));
+  //     getUsersMovies(jwt)
+  //       .then((movies) => {
+  //         setSavedMovies(movies)
+  //       })
+  //       .catch((err) => console.log(err));
+  //   };
 
 
   const handleUpdateUser = (name, email) => {

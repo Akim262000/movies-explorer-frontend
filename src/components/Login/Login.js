@@ -2,25 +2,19 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import { useState } from "react";
+import { useFormWithValidation } from "../../hooks/formWithValidation";
 
 function Login({ onLogin }) {
-  const [formValue, setFormValue] = useState({
-    email: "",
-    password: "",
-  });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValue({
-      ...formValue,
-      [name]: value,
-    });
-  };
+  const {values, errors, isValid, handleChange} = useFormWithValidation();
 
-  const handleSubmit = (e) => {
+  // ---ОБРАБОТЧИКИ---
+  function handleSubmit(e) {
     e.preventDefault();
-    onLogin(formValue);
+    onLogin(values.email, values.password);
   };
+
+  
 
   return (
     <section className="login">
@@ -38,7 +32,7 @@ function Login({ onLogin }) {
             minLength="2"
             maxLength="30"
             placeholder="Email"
-            value={formValue.email}
+            value={values.email}
             onChange={handleChange}
             required
           />
@@ -56,7 +50,7 @@ function Login({ onLogin }) {
             minLength="8"
             maxLength="20"
             placeholder="Пароль"
-            value={formValue.password}
+            value={values.password}
             onChange={handleChange}
             required
           />

@@ -27,20 +27,41 @@ export const getUserData = (token) => {
   });
 };
 
-export const register = ({ name, email, password }) => {
+export const register = ( name, email, password ) => {
   return fetch(`${BASE_URL}/signup`, {
-    method: "POST",
-    headers,
-    body: JSON.stringify({ name, email, password }),
-  }).then((res) => checkResponse(res));
+    method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      })
+    })
+    .then(res => {
+      return res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
+    })
 };
 
-export const authorize = ({ email, password }) => {
+export const authorize = ( email, password ) => {
   return fetch(`${BASE_URL}/signin`, {
-    method: "POST",
-    headers,
-    body: JSON.stringify({ email, password }),
-  }).then((res) => checkResponse(res));
+    method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      })
+    })
+    .then(res => {
+      return res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
+    })
 };
 
 export const getContent = (token) => {
@@ -53,12 +74,12 @@ export const getContent = (token) => {
   }).then((res) => checkResponse(res));
 };
 
-export const updateUserInfo = (name, email, jwt) => {
+export const updateUserInfo = (name, email, token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: "PATCH",
     headers: {
       ...headers,
-      Authorization: `Bearer ${jwt}`,
+      Authorization: `Bearer ${token}`,
     },
     credentials: "include",
     body: JSON.stringify({
