@@ -17,7 +17,6 @@ import * as auth from "../../utils/auth";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-
   const [isSuccessRegistration, setIsSuccessRegistration] = React.useState(false);
 
   const [savedMovies, setSavedMovies] = React.useState([]);
@@ -82,7 +81,7 @@ function App() {
     .then(data => {
       if(data){
         console.log(data);
-        handleAuthorization(data.email, password);
+        handleAuthorization(email, password);
       } 
     })
     .catch(({ message, statusCode }) => {
@@ -96,13 +95,13 @@ function App() {
     })
   };
 
-  const handleAuthorization = (data) => {
+  const handleAuthorization = (email, password) => {
     setIsLoading(true);
-    auth.authorize(data)
+    auth.authorize(email, password)
       .then(res => {
         setIsLoggedIn(true);
-        localStorage.setItem("jwt", data.token);
-        mainApi._headers["Authorization"] = `Bearer ${data.token}`;
+        localStorage.setItem("jwt", res.token);
+        mainApi._headers["Authorization"] = `Bearer ${res.token}`;
         tokenCheck();
         navigate('/movies');
       })
@@ -144,7 +143,7 @@ function App() {
     }
     mainApi.getUserData(jwt)
       .then((data) => {
-        // setAuthorizationEmail(data.email);
+        // setAuthorizationEmail(data.data.email);
         setIsLoggedIn(true);
         setCurrentUser(data);
         navigate("/");

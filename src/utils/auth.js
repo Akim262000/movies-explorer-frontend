@@ -5,7 +5,7 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-export const register = ({name, email, password}) => {
+export const register = (name, email, password) => {
   return fetch(`${BASE_URL}/signup`, {
     method: "POST",
     credentials: "include",
@@ -18,7 +18,7 @@ export const register = ({name, email, password}) => {
   }).then((res) => checkResponse(res));
 }
 
-export const authorize = ({email, password})=> {
+export const authorize = (email, password)=> {
   return fetch(`${BASE_URL}/signin`, {
     method: "POST",
     credentials: "include",

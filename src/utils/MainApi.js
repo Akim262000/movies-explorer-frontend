@@ -3,11 +3,11 @@ import { checkResponse, BASE_URL } from "./utils";
 // export const base_url = 'https://api.movie-may.nomoredomainsicu.ru';
 
 class MainApi {
-  constructor({ baseUrl }) {
+  constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     this._userUrl = `${this._baseUrl}/users/me`;
     this._moviesUrl = `${this._baseUrl}/movies`;
-    // this._token = headers['authorization'];
+    this._token = headers['authorization'];
   }
 
   _parseResponse(res) {
