@@ -74,7 +74,9 @@ class MainApi {
         name,
         email,
       }),
-    }).then((res) => checkResponse(res));
+    }).then((res) => {
+      return res.ok ? res.json() : res.json.then((err) => Promise.reject(err));
+    });
   }
 
   // метод получения избранных пользователем фильмов с сервера

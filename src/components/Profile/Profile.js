@@ -7,6 +7,7 @@ import { useFormWithValidation } from "../../hooks/formWithValidation";
 import MessageInfo from "../MessageInfo/MessageInfo";
 
 function Profile({ isLoggedIn, onSignOut, onUpdate, infoMessage }) {
+
   const currentUser = React.useContext(CurrentUserContext);
   const { values, errors, isValid, handleChange, setValues, setIsValid } = useFormWithValidation();
   const [isInputActive, setIsInputActive] = React.useState(false);
@@ -47,6 +48,7 @@ function Profile({ isLoggedIn, onSignOut, onUpdate, infoMessage }) {
   function handleRedactClick() {
     setIsInputActive(true);
   }
+
   return (
     <>
       <section className="profile">
@@ -87,10 +89,10 @@ function Profile({ isLoggedIn, onSignOut, onUpdate, infoMessage }) {
               <span className="profile__error" id="email-error"></span>
             </label>
 
-          <MessageInfo {...infoMessage} />
+            <MessageInfo {...infoMessage} />
 
             {isInputActive ? (
-              <button className="profile__button profile__button_type_submit app__link" type="button" disabled={!isValid}>
+              <button className="profile__button profile__button_type_submit app__link" type="submit" disabled={!isValid}>
                 Сохранить
               </button>
             ) : (

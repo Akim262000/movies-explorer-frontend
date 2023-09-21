@@ -6,8 +6,10 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { filterMovies, filterShortMovies, changeMovies } from "../../utils/utils";
 import moviesApi from "../../utils/MoviesApi";
+import Preloader from "../Preloader/Preloader";
 
-function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
+function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick, isLoading }) {
+  
   const forCheckbox = localStorage.getItem("shortFilms") === "on" ? "on" : "off";
 
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -85,15 +87,20 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
         onCheckbox={handleCheckbox} 
         shortFilms={shortFilms} 
       />
-      <MoviesCardList
-        list={filteredMovies}
-        isLoading={isMoviesLoaging}
-        isEmptyList={isNothingFound}
-        onLike={onLikeClick}
-        onDelete={onDeleteClick}
-        savedMovies={savedMoviesList}
-        isError={isError}
+      {isLoading && (
+        <Preloader />
+      )}
+      {!isLoading && 
+        <MoviesCardList
+          list={filteredMovies}
+          // isLoading={isMoviesLoaging}
+          isEmptyList={isNothingFound}
+          onLike={onLikeClick}
+          onDelete={onDeleteClick}
+          savedMovies={savedMoviesList}
+          isError={isError}
       />
+      }
       <Footer />
     </section>
   );

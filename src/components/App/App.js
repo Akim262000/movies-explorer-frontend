@@ -6,7 +6,6 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 import Profile from "../Profile/Profile";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
-import { saveList } from "../../utils/data";
 import React from "react";
 import NotFound from "../NotFound/NotFouns";
 import Preloader from '../Preloader/Preloader'
@@ -17,11 +16,10 @@ import * as auth from "../../utils/auth";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [isSuccessRegistration, setIsSuccessRegistration] = React.useState(false);
 
   const [savedMovies, setSavedMovies] = React.useState([]);
 
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
   const [currentUser, setCurrentUser] = React.useState({});
 
   const [isError, setIsError] = React.useState(false);
@@ -162,7 +160,8 @@ function App() {
   
     React.useEffect(() => {
       if (isLoggedIn) {
-        navigate("/");
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        navigate("/movies");
       }
     }, [isLoggedIn]);
 
@@ -238,8 +237,8 @@ function App() {
 
           <Route path="/signin" element={<Login onLogin={handleAuthorization} infoMessage={infoMessage}/>} />
 
-          <Route exact path="/signup" element={!isLoggedIn ? <Navigate to="/signup" /> : <Navigate to="/" />}></Route>
-          <Route exact path="/signin" element={!isLoggedIn ? <Navigate to="/signin" /> : <Navigate to="/" />}></Route>
+          <Route exact path="/signup" element={!isLoggedIn ? <Navigate to="/signup" /> : <Navigate to="/movies" />}></Route>
+          <Route exact path="/signin" element={!isLoggedIn ? <Navigate to="/signin" /> : <Navigate to="/movies" />}></Route>
 
           {/* <Route exact path="/movies" element={isLoggedIn ? <Navigate to="/movies" /> : <Navigate to="/" />}></Route>
           <Route exact path="/saved-movies" element={isLoggedIn ? <Navigate to="/saved-movies" /> : <Navigate to="/" />}></Route>
