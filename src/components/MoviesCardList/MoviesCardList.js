@@ -5,7 +5,7 @@ import { getSavedMovieCard } from "../../utils/utils";
 import Preloader from "../Preloader/Preloader";
 import { useWindowWidth } from "../../hooks/windowWidth";
 
-function MoviesCardList(isLoading, list, isEmptyList, onLike, onDelete, savedMovies, savedMoviesPage, isError) {
+function MoviesCardList({isLoading, list, isEmptyList, onLike, onDelete, savedMovies, savedMoviesPage, isError}) {
   const width = useWindowWidth();
   const [showList, setShowList] = React.useState([]);
   const [cardsShowParams, setCardsShowParams] = React.useState({ sum: 0, more: 0 });
