@@ -32,17 +32,7 @@ export const checkResponse = (response) => {
       );
 };
 
-export const BASE_URL = "http://localhost:4000";
-
-// export function changeMovies(movies) {
-//   movies.forEach(movie => {
-//     if(!movie.image){
-//       movie.image = "https://i.pinimg.com/originals/95/e7/ec/95e7ec6b98c3cc762bdeb6179b779ca1.jpg"
-//     } else {
-//       movie.image = `https://api.nomoreparties.co${movie.image.url}`
-//     }
-//   });
-// }
+export const BASE_URL = "https://api.movie-may.nomoredomainsicu.ru";
 
 export function changeMovies(movies) {
   movies.forEach(movie => {
