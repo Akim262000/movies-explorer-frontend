@@ -1,7 +1,5 @@
 import { checkResponse, BASE_URL } from "./utils";
 
-// export const base_url = 'https://api.movie-may.nomoredomainsicu.ru';
-
 class MainApi {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
@@ -17,11 +15,6 @@ class MainApi {
     return Promise.reject(`Ошибка ${res.status}`);
   }
 
-  // headers = {
-  //   Accept: "application/json",
-  //   "Content-Type": "application/json",
-  // };
-
   //метод получения информации о пользователе с сервера
   getUserData() {
     return fetch(this._userUrl, {
@@ -29,41 +22,6 @@ class MainApi {
       credentials: "include",
     }).then((res) => checkResponse(res));
   }
-
-  // register(name, email, password) {
-  //   return fetch(`${this._baseUrl}/signup`, {
-  //     method: "POST",
-  //     credentials: "include",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       name,
-  //       email,
-  //       password,
-  //     }),
-  //   }).then((res) => {
-  //     return res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
-  //   });
-  // }
-
-  // authorize(email, password) {
-  //   return fetch(`${this._baseUrl}/signin`, {
-  //     method: "POST",
-  //     credentials: "include",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       email,
-  //       password,
-  //     }),
-  //   }).then((res) => {
-  //     return res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
-  //   });
-  // }
 
   updateUserInfo(name, email) {
     return fetch(this._userUrl, {

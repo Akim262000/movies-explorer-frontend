@@ -1,12 +1,14 @@
 .movies-card {
   width: 100%;
   position: relative;
+  box-sizing: border-box;
 }
 
 .movies-card__image {
   width: 100%;
-  height: auto;
+  height: 201px;
   border-radius: 8px;
+  object-fit: cover;
 }
 
 .movies-card__info {
@@ -46,7 +48,7 @@
   background-color: inherit;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url('../../images/save3d.svg');
+  background-image: url('../../images/button-save.svg');
   border: none;
   visibility: hidden;
   border-radius: 36px;
@@ -64,11 +66,11 @@
 }
 
 .movies-card__button-save {
-  background-image: url('../../images/save3d.svg');
+  background-image: url('../../images/button-save.svg');
 }
 
 .movies-card__button-save:hover{
-  background-image: url('../../images/save3.svg');
+  background-image: url('../../images/save-active.svg');
 }
 
 .movies-card__button-save_active {
@@ -76,14 +78,14 @@
   right: 14px;
   width: 21px;
   height: 21px;
-  background-image: url('../../images/save3.svg');
+  background-image: url('../../images/save-active.svg');
 }
 
 .movies-card__button-delete {
   top: 14px;
   right: 14px;
   width: 21px;
-  background-image: url("../../images/d3.svg");
+  background-image: url("../../images/button-delete.svg");
 }
 
 .movies-card:hover .movies-card__button-delete {

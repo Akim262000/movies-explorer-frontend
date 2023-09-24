@@ -28,8 +28,9 @@
 
 .burger__button-close {
   border: none;
-  background-repeat: none;
   background-color: inherit;
+  background-repeat: no-repeat;
+  background-position: center;
   background-image: url('../../images/button-delete.svg');
   width: 32px;
   height: 32px;
