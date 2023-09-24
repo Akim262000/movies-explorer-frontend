@@ -30,9 +30,13 @@ function MoviesCard({ card, onLike, onDelete, liked, savedPage }) {
         <p className="movies-card__duration">{movieDuration(card.duration)}</p>
       </div>
       <button
-        className={`movies-card__button 
-        ${savedPage ? "movies-card__button-delete" : "movies-card__button-save"}
-        ${liked && !savedPage ? "movies-card__button-save_active" : ""}`}
+      className={`movies-card__button
+      ${savedPage ? "movies-card__button-delete" : "movies-card__save-delete"}
+      ${liked && !savedPage ? "movies-card__button-save_active" : ""}`}
+
+        // className={`movies-card__button
+        // ${savedPage ? "movies-card__button-save" : ""}
+        // ${liked && !savedPage ? "movies-card__button-save_active" : ""}`}
         type="button"
         aria-label="Добавить в избранное"
         onClick={savedPage || liked ? handleDeleteClick : handleLikeClick}
