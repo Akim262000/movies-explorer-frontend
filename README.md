@@ -4,4 +4,4 @@
 
 [Ссылка на задеплоенный на сервере проект ](https://movie-may.nomoredomainsicu.ru)
 
-[Ссылка на пул реквест ]()
+[Ссылка на пул реквест ](https://github.com/Akim262000/movies-explorer-frontend/pull/2)
