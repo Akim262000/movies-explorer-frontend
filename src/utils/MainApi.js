@@ -87,8 +87,9 @@ class MainApi {
       credentials: "include",
     }).then((res) => checkResponse(res));
   }
+  
   // метод добавления нового фильма в избранное (создание карточки)
-  saveNewMovie({ token, country, director, duration, year, description, image, trailerLink, nameRU, nameEN, thumbnail, id }) {
+  saveNewMovie({ country, director, duration, year, description, image, trailerLink, nameRU, nameEN, thumbnail, id }) {
     return fetch(this._moviesUrl, {
       method: "POST",
       headers: this._headers,
@@ -105,7 +106,7 @@ class MainApi {
         nameEN: nameEN || "no name",
         thumbnail,
         movieId: id,
-      }),
+      })
     }).then((res) => checkResponse(res));
   }
 

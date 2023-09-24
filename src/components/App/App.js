@@ -39,34 +39,34 @@ function App() {
     navigate("/signin");
   };
 
-   // при логине, если получаем пользователя то обновляем стейты
-   React.useEffect(() => {
-    setIsLoading(true);
-    mainApi.getUserData()
-      .then(data => {
-        handleLoggedIn();
-        setCurrentUser(data);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-      .finally(() => setIsLoading(false))
-  }, [isLoggedIn]);
+  //  // при логине, если получаем пользователя то обновляем стейты
+  //  React.useEffect(() => {
+  //   setIsLoading(true);
+  //   mainApi.getUserData()
+  //     .then(data => {
+  //       handleLoggedIn();
+  //       setCurrentUser(data);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     })
+  //     .finally(() => setIsLoading(false))
+  // }, [isLoggedIn]);
 
-  // при загрузке страницы получаем данные избранных пользователем фильмов
-  React.useEffect(() => {
-    if(isLoggedIn){
-      mainApi.getUsersMovies()
-      .then((data) => {
-        setSavedMovies(data);
-        setIsError(false);
-      })
-      .catch(err => {
-        setIsError(true);
-        console.log(err);
-      })
-    }
-  }, [isLoggedIn]);
+  // // при загрузке страницы получаем данные избранных пользователем фильмов
+  // React.useEffect(() => {
+  //   if(isLoggedIn){
+  //     mainApi.getUsersMovies()
+  //     .then((data) => {
+  //       setSavedMovies(data);
+  //       setIsError(false);
+  //     })
+  //     .catch(err => {
+  //       setIsError(true);
+  //       console.log(err);
+  //     })
+  //   }
+  // }, [isLoggedIn]);
 
 
   // ---ОБРАБОТЧИКИ---
@@ -144,7 +144,7 @@ function App() {
         // setAuthorizationEmail(data.data.email);
         setIsLoggedIn(true);
         setCurrentUser(data);
-        navigate("/");
+        // navigate("/");
       })
       .catch((err) => console.log(err));
       mainApi.getUsersMovies(jwt)
@@ -187,34 +187,34 @@ function App() {
     };
 
 
-  // при логине, если получаем пользователя то обновляем стейты
-  React.useEffect(() => {
-    setIsLoading(true);
-    mainApi.getUserData()
-      .then(data => {
-        handleLoggedIn();
-        setCurrentUser(data);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-      .finally(() => setIsLoading(false))
-  }, [isLoggedIn]);
+  // // при логине, если получаем пользователя то обновляем стейты
+  // React.useEffect(() => {
+  //   setIsLoading(true);
+  //   mainApi.getUserData()
+  //     .then(data => {
+  //       handleLoggedIn();
+  //       setCurrentUser(data);
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     })
+  //     .finally(() => setIsLoading(false))
+  // }, [isLoggedIn]);
 
-  // при загрузке страницы получаем данные избранных пользователем фильмов
-  React.useEffect(() => {
-    if(isLoggedIn){
-      mainApi.getUsersMovies()
-      .then((data) => {
-        setSavedMovies(data);
-        // setIsError(false);
-      })
-      .catch(err => {
-        // setIsError(true);
-        console.log(err);
-      })
-    }
-  }, [isLoggedIn]);
+  // // при загрузке страницы получаем данные избранных пользователем фильмов
+  // React.useEffect(() => {
+  //   if(isLoggedIn){
+  //     mainApi.getUsersMovies()
+  //     .then((data) => {
+  //       setSavedMovies(data);
+  //       setIsError(false);
+  //     })
+  //     .catch(err => {
+  //       setIsError(true);
+  //       console.log(err);
+  //     })
+  //   }
+  // }, [isLoggedIn]);
 
 
 

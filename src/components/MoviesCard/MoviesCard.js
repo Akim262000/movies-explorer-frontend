@@ -17,6 +17,9 @@ function MoviesCard({ card, onLike, onDelete, liked, savedPage }) {
     onDelete(card);
   }
 
+  // const cardLikeButtonClassName = `element__button-like ${isLiked && "element__button-like_active"}`;
+
+
   return (
     <section className="movies-card">
       <a className="app__link" href={card.trailer || card.trailerLink} target="_blank" rel="noreferrer">

@@ -72,7 +72,9 @@ function MoviesCardList({isLoading, list, isEmptyList, onLike, onDelete, savedMo
         <Preloader />
       ) : (isEmptyList || isError ? (
         <p className={`movies-card-list__message ${isError && "movies-card-list__message_type_error"}`}>
-          {isError ? `Произошла ошибка. Пожалуйста, попробуйте позже` : "Ничего не найдено"}
+          {isError ? `Во время запроса произошла ошибка. 
+              Возможно, проблема с соединением или сервер недоступен.
+              Подождите немного и попробуйте ещё раз.` : "Ничего не найдено"}
         </p>
       ) : (
         <>

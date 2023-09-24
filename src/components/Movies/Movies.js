@@ -87,10 +87,6 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick, isLoa
         onCheckbox={handleCheckbox} 
         shortFilms={shortFilms} 
       />
-      {isLoading && (
-        <Preloader />
-      )}
-      {!isLoading && 
         <MoviesCardList
           list={filteredMovies}
           // isLoading={isMoviesLoaging}
@@ -100,7 +96,6 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick, isLoa
           savedMovies={savedMoviesList}
           isError={isError}
       />
-      }
       <Footer />
     </section>
   );

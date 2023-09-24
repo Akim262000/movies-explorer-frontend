@@ -30,6 +30,7 @@
   font-size: 14px;
   line-height: 18px;
   padding-left: 20px;
+  box-sizing: border-box;
 }
 
 .search-form__input:focus{

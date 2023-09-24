@@ -43,7 +43,7 @@
   top: 14px;
   right: 10px;
   color: #fff;
-  background-color: #313131;
+  background-image: url('../../images/save3d.svg');
   border-radius: 30px;
   border: none;
   font-size: 12px;
@@ -65,11 +65,11 @@
   opacity: 1;
 }
 
-.movies-card__button-delete {
+.movies-card__button-save_active {
   position: absolute;
   top: 14px;
   right: 14px;
-  background-image: url('../../images/delete-button.svg');
+  background-image: url('../../images/button-save-active.svg');
   width: 21px;
   height: 21px;
   border-radius: 50px;
@@ -87,8 +87,8 @@
   position: absolute;
   top: 14px;
   right: 14px;
-  background-image: url('../../images/button-save.svg');
-  width: 21px;
+  background-image: url('../../images/save3d.svg');
+  width: 72px;
   height: 21px;
   border: none;
   border-radius: 50px;
