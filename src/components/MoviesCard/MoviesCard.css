@@ -108,6 +108,14 @@
   .movies-card__duration {
     margin-top: 24px;
   }
+
+  .movies-card__button-save_active {
+    visibility: visible;
+  }
+
+  .movies-card__button-delete {
+    visibility: visible;
+  }
 }
 
 @media screen and (max-width: 320px) {

@@ -34,18 +34,10 @@ function MoviesCard({ card, onLike, onDelete, liked, savedPage }) {
       ${savedPage ? "movies-card__button-delete" : "movies-card__save-delete"}
       ${liked && !savedPage ? "movies-card__button-save_active" : ""}`}
 
-        // className={`movies-card__button
-        // ${savedPage ? "movies-card__button-save" : ""}
-        // ${liked && !savedPage ? "movies-card__button-save_active" : ""}`}
         type="button"
         aria-label="Добавить в избранное"
         onClick={savedPage || liked ? handleDeleteClick : handleLikeClick}
       />
-      {/* {card.owner === 1 && !savedPage && <button className="movies-card__button-save" />}
-        {savedPage ? (
-          <button className="movies-card__button-delete" />) 
-          : (<button className="movies-card__button">Сохранить</button>)
-        } */}
     </section>
   );
 }
