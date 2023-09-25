@@ -109,6 +109,10 @@
     margin-top: 24px;
   }
 
+  .movies-card__button {
+    visibility: visible;
+  }
+
   .movies-card__button-save_active {
     visibility: visible;
   }
