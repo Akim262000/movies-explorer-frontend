@@ -7,7 +7,6 @@ import { useFormWithValidation } from "../../hooks/formWithValidation";
 import MessageInfo from "../MessageInfo/MessageInfo";
 
 function Profile({ isLoggedIn, onSignOut, onUpdate, infoMessage }) {
-
   const currentUser = React.useContext(CurrentUserContext);
   const { values, errors, isValid, handleChange, setValues, setIsValid } = useFormWithValidation();
   const [isInputActive, setIsInputActive] = React.useState(false);
@@ -61,6 +60,7 @@ function Profile({ isLoggedIn, onSignOut, onUpdate, infoMessage }) {
               <input
                 className="profile__input"
                 value={values.name || ""}
+                pattern="^[A-Za-zА-Яа-яЁё /s -]+$"
                 type="text"
                 name="name"
                 id="name"
@@ -70,7 +70,12 @@ function Profile({ isLoggedIn, onSignOut, onUpdate, infoMessage }) {
                 disabled={!isInputActive}
                 required
               ></input>
-              <span className="profile__error" id="name-error"></span>
+              {/* <span className="profile__error" id="name-error">
+                {errors.name
+                  ? `Поле должно быть заполнено`
+                  : ""}
+              </span> */}
+              
             </label>
             <label className="profile__label">
               Email
@@ -86,7 +91,9 @@ function Profile({ isLoggedIn, onSignOut, onUpdate, infoMessage }) {
                 disabled={!isInputActive}
                 required
               ></input>
-              <span className="profile__error" id="email-error"></span>
+              {/* <span className="profile__error" id="email-error">
+                {errors.email || ""}
+              </span> */}
             </label>
 
             <MessageInfo {...infoMessage} />

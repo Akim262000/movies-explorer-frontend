@@ -8,7 +8,7 @@ import { filterMovies, filterShortMovies, changeMovies } from "../../utils/utils
 import moviesApi from "../../utils/MoviesApi";
 import Preloader from "../Preloader/Preloader";
 
-function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick, isLoading }) {
+function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
   
   const forCheckbox = localStorage.getItem("shortFilms") === "on" ? "on" : "off";
 
@@ -46,7 +46,8 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick, isLoa
         .catch((err) => {
           setIsError(true);
           console.log(err);
-        });
+        })
+        .finally(() => setIsMoviesLoaging(false))
     } else {
       handleSetFilteredMovies(allMovies, value, shortFilms);
       setIsMoviesLoaging(false);
@@ -90,7 +91,7 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick, isLoa
       />
         <MoviesCardList
           list={filteredMovies}
-          // isLoading={isMoviesLoaging}
+          isLoading={isMoviesLoaging}
           isEmptyList={isNothingFound}
           onLike={onLikeClick}
           onDelete={onDeleteClick}
