@@ -29,6 +29,7 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick, isLoa
   }
 
   function handleSearchSubmit(value) {
+    
     setIsMoviesLoaging(true);
     setSearchQuery(value);
     localStorage.setItem("searchQuery", value);

@@ -35,7 +35,17 @@
 
 .search-form__input:focus{
   outline: none;
-  border: 1.5px solid #41ce34;
+  border: 1.5px solid #ffffff;
+}
+
+.search-form__error {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 12px;
+  color: #FF004C;
+  position: absolute;
+  top: 50px;
+  left: 24px;
 }
 
 .search-form__button {
