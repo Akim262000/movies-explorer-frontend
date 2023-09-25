@@ -1,0 +1,5 @@
+const SUCCESSFUL_CODE = 200;
+
+export {
+  SUCCESSFUL_CODE,
+};

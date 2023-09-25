@@ -12,6 +12,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import mainApi from "../../utils/MainApi";
 import * as auth from "../../utils/auth";
+import { SUCCESSFUL_CODE } from "../../utils/constants";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -68,7 +69,7 @@ function App() {
         localStorage.setItem("jwt", res.token);
         mainApi._headers["Authorization"] = `Bearer ${res.token}`;
         tokenCheck();
-        navigate('/movies');
+        // navigate('/movies');
       })
       .catch(({ message, statusCode }) => {
         setInfoMessage({
@@ -128,7 +129,7 @@ function App() {
     React.useEffect(() => {
       if (isLoggedIn) {
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        navigate("/saved-movies");
+        navigate("/movies");
       }
     }, [isLoggedIn]);
 
@@ -153,9 +154,22 @@ function App() {
     })
     };
 
+    // обработчик сброса вывода сообщения с сервера
+  const handleClickResetInfoMessage = () => {
+    if (infoMessage.isShown){
+      setInfoMessage({
+        ...infoMessage,
+        isShown: false,
+        message: '',
+        type: '',
+        code: SUCCESSFUL_CODE,
+      });
+    }
+  };
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className="app">
+      <div className="app" onClick={infoMessage.isShown ? handleClickResetInfoMessage : null}>
         <Routes>
           <Route path="/" element={<Main isLoggedIn={isLoggedIn} />} />
 

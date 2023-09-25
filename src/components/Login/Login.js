@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import { useState } from "react";
 import { useFormWithValidation } from "../../hooks/formWithValidation";
+import MessageInfo from "../MessageInfo/MessageInfo";
 
-function Login({ onLogin }) {
+function Login({ onLogin, infoMessage }) {
 
   const {values, errors, isValid, handleChange} = useFormWithValidation();
 
@@ -60,6 +61,8 @@ function Login({ onLogin }) {
             {errors.password || ""}
           </span>
         </label>
+
+        <MessageInfo {...infoMessage} />
 
         <button className="login__submit-button" type="submit" disabled={!isValid}>
           Войти
