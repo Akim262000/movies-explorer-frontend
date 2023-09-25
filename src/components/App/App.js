@@ -70,7 +70,7 @@ function App() {
         localStorage.setItem("jwt", res.token);
         mainApi._headers["Authorization"] = `Bearer ${res.token}`;
         tokenCheck();
-        // navigate('/movies');
+        navigate('/movies');
       })
       .catch(({ message, statusCode }) => {
         setInfoMessage({
@@ -104,7 +104,7 @@ function App() {
   };
   
   const tokenCheck = () => {
-    const path = lication.pathname;
+    // const path = lication.pathname;
     const jwt = localStorage.getItem("jwt");
     if (!jwt) {
       return;
@@ -114,7 +114,7 @@ function App() {
         // setAuthorizationEmail(data.data.email);
         setIsLoggedIn(true);
         setCurrentUser(data);
-        navigate(path);
+        navigate("/movies");
       })
       .catch((err) => console.log(err));
       mainApi.getUsersMovies(jwt)
