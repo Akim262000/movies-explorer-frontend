@@ -33,16 +33,14 @@ function App() {
 
   // Выход
   const handleSignOut = () => {
-    localStorage.removeItem("jwt");
+    localStorage.clear();
     setIsLoggedIn(false);
-    navigate("/signin");
+    setCurrentUser({})
+    navigate("/");
   };
 
   // ---ОБРАБОТЧИКИ---
   // обработчик установки стейта входа/логина пользователя
-  function handleLoggedIn() {
-    setIsLoggedIn(true);
-  };
   const handleRegistration = (name, email, password) => {
     return auth.register(name, email, password)
     .then(data => {
