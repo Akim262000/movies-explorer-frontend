@@ -60,6 +60,11 @@ cursor: pointer;
 transition: opacity 0.3s ease-in;
 }
 
+.search-form__button:disabled {
+  cursor: default;
+  opacity: .8;
+}
+
 .search-form__filter-container {
   display: flex;
   align-items: center;

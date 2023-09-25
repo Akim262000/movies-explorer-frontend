@@ -128,7 +128,7 @@ function App() {
     React.useEffect(() => {
       if (isLoggedIn) {
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        navigate("/movies");
+        navigate("/saved-movies");
       }
     }, [isLoggedIn]);
 

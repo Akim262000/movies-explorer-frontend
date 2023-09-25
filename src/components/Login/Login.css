@@ -84,6 +84,11 @@
   transition: .3s ease;
 }
 
+.login__submit-button:disabled {
+  opacity: .8;
+  cursor: default;
+}
+
 .login__submit-button:hover {
   opacity: .8;
 }

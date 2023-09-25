@@ -61,7 +61,7 @@ function Login({ onLogin }) {
           </span>
         </label>
 
-        <button className="login__submit-button" type="submit">
+        <button className="login__submit-button" type="submit" disabled={!isValid}>
           Войти
         </button>
         <p className="login__subtitle">

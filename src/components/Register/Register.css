@@ -81,6 +81,11 @@
   transition: .3s ease;
 }
 
+.register__submit-button:disabled {
+  opacity: .8;
+  cursor: default;
+}
+
 .register__submit-button:hover {
   opacity: .8;
 }

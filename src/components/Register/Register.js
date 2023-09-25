@@ -80,7 +80,7 @@ function Register({ onRegister }) {
           </span>
         </label>
 
-        <button className="register__submit-button" type="submit">
+        <button className="register__submit-button" type="submit" disabled={!isValid}>
           зарегистрироваться
         </button>
         <p className="register__subtitle">
