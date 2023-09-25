@@ -1,11 +1,12 @@
+import { movieDuration } from "../../utils/constants";
 import "./MoviesCard.css";
 
 function MoviesCard({ card, onLike, onDelete, liked, savedPage }) {
-  function movieDuration(mins) {
-    const hours = Math.trunc(mins / 60);
-    const minutes = mins % 60;
-    return `${hours}ч ${minutes}м`;
-  }
+  // function movieDuration(mins) {
+  //   const hours = Math.trunc(mins / 60);
+  //   const minutes = mins % 60;
+  //   return `${hours}ч ${minutes}м`;
+  // }
 
   //обработчик клика по кнопке лайка
   function handleLikeClick() {

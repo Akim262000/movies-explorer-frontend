@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate, useLocation } from "react-router-dom";
 import "./App.css";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
@@ -31,6 +31,7 @@ function App() {
   });
 
   const navigate = useNavigate();
+  const lication = useLocation();
 
   // Выход
   const handleSignOut = () => {
@@ -103,6 +104,7 @@ function App() {
   };
   
   const tokenCheck = () => {
+    const path = lication.pathname;
     const jwt = localStorage.getItem("jwt");
     if (!jwt) {
       return;
@@ -112,7 +114,7 @@ function App() {
         // setAuthorizationEmail(data.data.email);
         setIsLoggedIn(true);
         setCurrentUser(data);
-        // navigate("/");
+        navigate(path);
       })
       .catch((err) => console.log(err));
       mainApi.getUsersMovies(jwt)
