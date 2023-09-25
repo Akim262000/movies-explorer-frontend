@@ -45,7 +45,7 @@
 
 .login__input:focus{
   outline: none;
-  border: 1px solid  #2cdb2c ;
+  border: 1px solid  #ffffff; ;
 }
 
 .login__input:invalid{

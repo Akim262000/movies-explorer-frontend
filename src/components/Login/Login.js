@@ -36,7 +36,9 @@ function Login({ onLogin }) {
             onChange={handleChange}
             required
           />
-          <span className="login__error" id="email-error"></span>
+          <span className="login__error" id="email-error">
+            {errors.email || ""}
+          </span>
         </label>
 
         <label className="login__label">
@@ -54,7 +56,9 @@ function Login({ onLogin }) {
             onChange={handleChange}
             required
           />
-          <span className="login__error" id="password-error"></span>
+          <span className="login__error" id="password-error">
+            {errors.password || ""}
+          </span>
         </label>
 
         <button className="login__submit-button" type="submit">

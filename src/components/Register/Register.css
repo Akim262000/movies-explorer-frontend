@@ -46,7 +46,7 @@
 
 .register__input:focus{
   outline: none;
-  border: 1px solid  #2cdb2c ;
+  border: 1px solid  #ffffff; ;
 }
 
 .register__input:invalid{
@@ -56,10 +56,12 @@
 .register__error {
   height: 12px;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 11px;
   line-height: 12px;
-  color: #ee3465;
+  color: #FF004C;
   margin-bottom: 4px;
+  top: 47px;
+  left: 0;
 }
 
 .register__submit-button {
