@@ -129,9 +129,10 @@ function App() {
     }, []);
   
     React.useEffect(() => {
+      const path = location.pathname;
       if (isLoggedIn) {
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        navigate("/movies");
+        navigate(path);
       }
     }, [isLoggedIn]);
 
