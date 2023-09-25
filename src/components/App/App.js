@@ -31,7 +31,7 @@ function App() {
   });
 
   const navigate = useNavigate();
-  const lication = useLocation();
+  const location = useLocation();
 
   // Выход
   const handleSignOut = () => {
@@ -70,7 +70,7 @@ function App() {
         localStorage.setItem("jwt", res.token);
         mainApi._headers["Authorization"] = `Bearer ${res.token}`;
         tokenCheck();
-        navigate('/movies');
+        // navigate('/mo');
       })
       .catch(({ message, statusCode }) => {
         setInfoMessage({
@@ -104,7 +104,7 @@ function App() {
   };
   
   const tokenCheck = () => {
-    // const path = lication.pathname;
+    const path = location.pathname;
     const jwt = localStorage.getItem("jwt");
     if (!jwt) {
       return;
@@ -114,7 +114,7 @@ function App() {
         // setAuthorizationEmail(data.data.email);
         setIsLoggedIn(true);
         setCurrentUser(data);
-        navigate("/movies");
+        navigate(path);
       })
       .catch((err) => console.log(err));
       mainApi.getUsersMovies(jwt)
@@ -184,12 +184,15 @@ function App() {
             element={<ProtectedRoute component={Profile} isLoggedIn={isLoggedIn} onSignOut={handleSignOut} onUpdate={handleUpdateUser} infoMessage={infoMessage}/>}
           />
 
-          <Route path="/signup" element={<Register onRegister={handleRegistration} infoMessage={infoMessage}/>} />
+          {/* <Route path="/signup" element={<Register onRegister={handleRegistration} infoMessage={infoMessage}/>} />
 
           <Route path="/signin" element={<Login onLogin={handleAuthorization} infoMessage={infoMessage}/>} />
 
           <Route exact path="/signup" element={!isLoggedIn ? <Navigate to="/signup" /> : <Navigate to="/movies" />}></Route>
-          <Route exact path="/signin" element={!isLoggedIn ? <Navigate to="/signin" /> : <Navigate to="/movies" />}></Route>
+          <Route exact path="/signin" element={!isLoggedIn ? <Navigate to="/signin" /> : <Navigate to="/movies" />}></Route> */}
+
+          <Route exact path="/signup" element={isLoggedIn ? <Navigate to="/movies" /> : <Register onRegister={handleRegistration} infoMessage={infoMessage}/>}></Route>
+          <Route exact path="/signin" element={isLoggedIn ? <Navigate to="/movies" /> : <Login onLogin={handleAuthorization} infoMessage={infoMessage}/>}></Route>
 
           {/* <Route exact path="/movies" element={isLoggedIn ? <Navigate to="/movies" /> : <Navigate to="/" />}></Route>
           <Route exact path="/saved-movies" element={isLoggedIn ? <Navigate to="/saved-movies" /> : <Navigate to="/" />}></Route>
