@@ -3,25 +3,18 @@ import "./SearchForm.css";
 import { useFormWithValidation } from "../../hooks/formWithValidation";
 
 function SearchForm({ onSearchClick, savedMoviesPage, shortFilms, onCheckbox }) {
-  // const { values, errors, isValid, setValues, handleChange, setIsValid } = useFormWithValidation();
-
-
-  const [query, setQuery] = React.useState("");
-  const [isValid, setIsValid] = React.useState(true);
+  const { values: query, setValues: setQuery, isValid, setIsValid, isLoading, setIsLoading } = useFormWithValidation("");
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if(!query) {
+    if (!query) {
       setIsValid(false);
     } else {
-      onSearchClick(query);
+      setIsLoading(true);
+      await onSearchClick(query);
+      setIsLoading(false);
     }
   }
-
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   onSearchClick(values.query);
-  // }
 
   // ---ЭФФЕКТЫ---
   React.useEffect(() => {
@@ -44,11 +37,17 @@ function SearchForm({ onSearchClick, savedMoviesPage, shortFilms, onCheckbox }) 
             placeholder="Фильм"
             name="query"
             value={query || ""}
-            onChange={(e) => {setQuery(e.target.value); setIsValid(true)}}
+            disabled={isLoading}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setIsValid(true);
+            }}
             required
           ></input>
-          <button type="submit" className="search-form__button"></button>
-          <span id="email-error" className="search-form__error">{!isValid ? "Нужно ввести ключевое слово" : ""}</span>
+          <button type="submit" className="search-form__button" disabled={isLoading}></button>
+          <span id="email-error" className="search-form__error">
+            {!isValid ? "Нужно ввести ключевое слово" : ""}
+          </span>
         </div>
         <div className="search-form__filter-container">
           <label
