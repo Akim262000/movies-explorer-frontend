@@ -119,7 +119,7 @@ function App() {
         // setAuthorizationEmail(data.data.email);
         setIsLoggedIn(true);
         setCurrentUser(data);
-        // navigate(path);
+        navigate(path);
       })
       .catch((err) => console.log(err));
     mainApi
@@ -134,12 +134,12 @@ function App() {
     tokenCheck();
   }, []);
 
-  React.useEffect(() => {
-    const path = location.pathname;
-    if (isLoggedIn) {
-      navigate(path);
-    }
-  }, [isLoggedIn]);
+  // React.useEffect(() => {
+  //   const path = location.pathname;
+  //   if (isLoggedIn) {
+  //     navigate(path);
+  //   }
+  // }, [isLoggedIn]);
 
   const handleUpdateUser = (name, email) => {
     mainApi
