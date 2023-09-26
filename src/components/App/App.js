@@ -119,7 +119,7 @@ function App() {
         // setAuthorizationEmail(data.data.email);
         setIsLoggedIn(true);
         setCurrentUser(data);
-        navigate(path);
+        // navigate(path);
       })
       .catch((err) => console.log(err));
     mainApi
