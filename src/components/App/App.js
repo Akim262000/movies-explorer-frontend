@@ -72,6 +72,7 @@ function App() {
         localStorage.setItem("jwt", res.token);
         mainApi._headers["Authorization"] = `Bearer ${res.token}`;
         tokenCheck();
+        navigate('/movies')
       })
       .catch(({ message, statusCode }) => {
         setInfoMessage({
