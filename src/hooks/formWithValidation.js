@@ -1,10 +1,10 @@
 import React from 'react';
 
-export function useFormWithValidation(initialState = {}) {
+export function useFormWithValidation(initialState = {}, initialIsValid = false) {
   
   const [values, setValues] = React.useState(initialState);
   const [errors, setErrors] = React.useState({});
-  const [isValid, setIsValid] = React.useState(false);
+  const [isValid, setIsValid] = React.useState(initialIsValid);
   const [isLoading, setIsLoading] = React.useState(false);
 
   //---ОБРАБОТЧИКИ---

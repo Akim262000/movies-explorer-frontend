@@ -3,7 +3,7 @@ import "./SearchForm.css";
 import { useFormWithValidation } from "../../hooks/formWithValidation";
 
 function SearchForm({ onSearchClick, savedMoviesPage, shortFilms, onCheckbox }) {
-  const { values: query, setValues: setQuery, isValid, setIsValid, isLoading, setIsLoading } = useFormWithValidation("");
+  const { values: query, setValues: setQuery, isValid, setIsValid, isLoading, setIsLoading } = useFormWithValidation("", true);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -44,10 +44,8 @@ function SearchForm({ onSearchClick, savedMoviesPage, shortFilms, onCheckbox }) 
             }}
             required
           ></input>
+          <span className="search-form__error">{isValid ? "Нужно ввести ключевое слово" : ""}</span>
           <button type="submit" className="search-form__button" disabled={isLoading}></button>
-          <span id="email-error" className="search-form__error">
-            {!isValid ? "Нужно ввести ключевое слово" : ""}
-          </span>
         </div>
         <div className="search-form__filter-container">
           <label
