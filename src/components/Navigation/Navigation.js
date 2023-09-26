@@ -22,10 +22,9 @@ function Navigation({ isLoggedIn }) {
               Сохранённые фильмы
             </Link>
           </div>
-          <div>
+          <div className="navigation-menu__container-acc">
             <Link to="/profile">
-              <button
-               className="navigation-menu__button-account">Аккаунт</button>
+              <button className="navigation-menu__button-account">Аккаунт</button>
             </Link>
           </div>
         </>
@@ -39,12 +38,12 @@ function Navigation({ isLoggedIn }) {
           </Link>
         </div>
       )}
-      {/* {!isBurgerMenuOpen && isLoggedIn ? ( */}
-      {!isBurgerMenuOpen ? (
-        <button className="navigation-menu__button-burger" onClick={toggleBurgerMenu} />
-      ) : (
-        <BurgerMenu onClose={toggleBurgerMenu} />
-      )}
+      {isLoggedIn &&
+        (!isBurgerMenuOpen ? (
+          <button className="navigation-menu__button-burger" onClick={toggleBurgerMenu} />
+        ) : (
+          <BurgerMenu onClose={toggleBurgerMenu} />
+        ))}
     </nav>
   );
 }
