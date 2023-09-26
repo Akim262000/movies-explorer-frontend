@@ -82,7 +82,7 @@ function Profile({ isLoggedIn, onSignOut, onUpdate, infoMessage }) {
               <input
                 className="profile__input"
                 value={values.email || ""}
-                pattern={'^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$'}
+                pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
                 type="email"
                 name="email"
                 id="email"

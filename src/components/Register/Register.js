@@ -54,6 +54,7 @@ function Register({ onRegister }) {
             maxLength="30"
             placeholder="Email"
             value={values.email || ""}
+            pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
             onChange={handleChange}
             disabled={isLoading}
             required
