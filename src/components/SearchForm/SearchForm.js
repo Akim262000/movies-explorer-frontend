@@ -44,7 +44,7 @@ function SearchForm({ onSearchClick, savedMoviesPage, shortFilms, onCheckbox }) 
             }}
             required
           ></input>
-          <span className="search-form__error">{isValid ? "Нужно ввести ключевое слово" : ""}</span>
+          <span className="search-form__error">{!isValid ? "Нужно ввести ключевое слово" : ""}</span>
           <button type="submit" className="search-form__button" disabled={isLoading}></button>
         </div>
         <div className="search-form__filter-container">

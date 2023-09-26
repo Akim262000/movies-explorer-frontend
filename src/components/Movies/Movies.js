@@ -14,7 +14,8 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
   const [shortFilms, setShortFilms] = React.useState(forCheckbox);
 
   const [filteredMovies, setFilteredMovies] = React.useState([]);
-  const [allMovies, setAllMovies] = React.useState([]);
+  const movies = localStorage.getItem("movies") ? JSON.parse(localStorage.getItem("movies")) : [];
+  const [allMovies, setAllMovies] = React.useState(movies);
 
   const [isNothingFound, setIsNothingFound] = React.useState(false);
   const [isMoviesLoaging, setIsMoviesLoaging] = React.useState(false);
@@ -23,7 +24,7 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
   function handleSetFilteredMovies(movies, query, checkbox) {
     const moviesList = filterMovies(movies, query);
     setFilteredMovies(checkbox === "on" ? filterShortMovies(moviesList) : moviesList);
-    localStorage.setItem("movies", JSON.stringify(moviesList));
+    // localStorage.setItem("movies", JSON.stringify(moviesList));
   }
 
   function handleSearchSubmit(value) {
@@ -38,6 +39,7 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
         .then((data) => {
           changeMovies(data);
           setAllMovies(data);
+          localStorage.setItem("movies", JSON.stringify(data))
           handleSetFilteredMovies(data, value, shortFilms);
         })
         .catch((err) => {
@@ -78,12 +80,12 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
     }
   }, [searchQuery, shortFilms, allMovies]);
 
-  // React.useEffect(() => {
-  //   const query = localStorage.getItem("searchQuery");
-  //   if (query) {
-  //     handleSearchSubmit(query);
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    const query = localStorage.getItem("searchQuery");
+    if (query) {
+      handleSearchSubmit(query);
+    }
+  }, []);
 
   return (
     <section className="movies">
