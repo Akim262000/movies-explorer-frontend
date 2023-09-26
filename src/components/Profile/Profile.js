@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 import "./Profile.css";
 import Header from "../Header/Header";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import React, { useContext } from "react";
+import React from "react";
 import { useFormWithValidation } from "../../hooks/formWithValidation";
 import MessageInfo from "../MessageInfo/MessageInfo";
 
 function Profile({ isLoggedIn, onSignOut, onUpdate, infoMessage }) {
   const currentUser = React.useContext(CurrentUserContext);
-  const { values, errors, isValid, handleChange, setValues, setIsValid } = useFormWithValidation();
+  const { values, isValid, handleChange, setValues, setIsValid } = useFormWithValidation();
   const [isInputActive, setIsInputActive] = React.useState(false);
 
   // ---ЭФФЕКТЫ---
@@ -82,6 +82,7 @@ function Profile({ isLoggedIn, onSignOut, onUpdate, infoMessage }) {
               <input
                 className="profile__input"
                 value={values.email || ""}
+                pattern={'^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$'}
                 type="email"
                 name="email"
                 id="email"

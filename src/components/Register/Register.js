@@ -1,7 +1,6 @@
 import "./Register.css";
 import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
-import { useState } from "react";
 import { useFormWithValidation } from "../../hooks/formWithValidation";
 
 function Register({ onRegister }) {

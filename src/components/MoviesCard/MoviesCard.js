@@ -2,12 +2,6 @@ import { movieDuration } from "../../utils/constants";
 import "./MoviesCard.css";
 
 function MoviesCard({ card, onLike, onDelete, liked, savedPage }) {
-  // function movieDuration(mins) {
-  //   const hours = Math.trunc(mins / 60);
-  //   const minutes = mins % 60;
-  //   return `${hours}ч ${minutes}м`;
-  // }
-
   //обработчик клика по кнопке лайка
   function handleLikeClick() {
     onLike(card);
@@ -17,9 +11,6 @@ function MoviesCard({ card, onLike, onDelete, liked, savedPage }) {
   function handleDeleteClick() {
     onDelete(card);
   }
-
-  // const cardLikeButtonClassName = `element__button-like ${isLiked && "element__button-like_active"}`;
-
 
   return (
     <section className="movies-card">
@@ -31,10 +22,9 @@ function MoviesCard({ card, onLike, onDelete, liked, savedPage }) {
         <p className="movies-card__duration">{movieDuration(card.duration)}</p>
       </div>
       <button
-      className={`movies-card__button
+        className={`movies-card__button
       ${savedPage ? "movies-card__button-delete" : "movies-card__save-delete"}
       ${liked && !savedPage ? "movies-card__button-save_active" : ""}`}
-
         type="button"
         aria-label="Добавить в избранное"
         onClick={savedPage || liked ? handleDeleteClick : handleLikeClick}

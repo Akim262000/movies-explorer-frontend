@@ -6,7 +6,6 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { filterMovies, filterShortMovies, changeMovies } from "../../utils/utils";
 import moviesApi from "../../utils/MoviesApi";
-import Preloader from "../Preloader/Preloader";
 
 function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
   

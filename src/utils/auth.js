@@ -29,13 +29,3 @@ export const authorize = (email, password)=> {
     }),
   }).then((res) => checkResponse(res));
 }
-
-  // getContent () {
-  //   return fetch(this._userUrl, {
-  //     method: "GET",
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       authorization: this._token,
-  //     },
-  //   }).then((res) => checkResponse(res));
-  // };

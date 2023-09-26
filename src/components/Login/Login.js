@@ -1,21 +1,17 @@
 import "./Login.css";
 import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
-import { useState } from "react";
 import { useFormWithValidation } from "../../hooks/formWithValidation";
 import MessageInfo from "../MessageInfo/MessageInfo";
 
 function Login({ onLogin, infoMessage }) {
-
-  const {values, errors, isValid, handleChange} = useFormWithValidation();
+  const { values, errors, isValid, handleChange } = useFormWithValidation();
 
   // ---ОБРАБОТЧИКИ---
   function handleSubmit(e) {
     e.preventDefault();
     onLogin(values.email, values.password);
-  };
-
-  
+  }
 
   return (
     <section className="login">
@@ -34,6 +30,7 @@ function Login({ onLogin, infoMessage }) {
             maxLength="30"
             placeholder="Email"
             value={values.email}
+            pattern="[a-z0-9._%+-]+@[a-z0-9]+[.]+[a-z]{2,4}$"
             onChange={handleChange}
             required
           />

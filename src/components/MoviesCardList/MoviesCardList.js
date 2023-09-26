@@ -70,7 +70,7 @@ function MoviesCardList({ isLoading, list, isEmptyList, onLike, onDelete, savedM
     <section className="movies-card-list">
       {isLoading ? (
         <Preloader />
-      ) : (isEmptyList || isError ? (
+      ) : isEmptyList || isError ? (
         <p className={`movies-card-list__message ${isError && "movies-card-list__message_type_error"}`}>
           {isError
             ? `Во время запроса произошла ошибка. 
@@ -91,8 +91,7 @@ function MoviesCardList({ isLoading, list, isEmptyList, onLike, onDelete, savedM
             Ещё
           </button>
         </>
-      )
-    )}
+      )}
     </section>
   );
 }

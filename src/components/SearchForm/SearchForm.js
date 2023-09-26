@@ -3,8 +3,6 @@ import "./SearchForm.css";
 import { useFormWithValidation } from "../../hooks/formWithValidation";
 
 function SearchForm({ onSearchClick, savedMoviesPage, shortFilms, onCheckbox }) {
-  // const [value, setValue] = React.useState('');
-
   const { values, errors, isValid, setValues, handleChange, setIsValid } = useFormWithValidation();
 
   function handleSubmit(e) {
@@ -37,9 +35,7 @@ function SearchForm({ onSearchClick, savedMoviesPage, shortFilms, onCheckbox }) 
             required
             noValidate
           ></input>
-          <span className="search-form__error">
-            {errors.query ? "Нужно ввести ключевое слово" : ""}
-          </span>
+          <span className="search-form__error">{errors.query ? "Нужно ввести ключевое слово" : ""}</span>
           <button className="search-form__button" disabled={!isValid}></button>
         </div>
         <div className="search-form__filter-container">
