@@ -136,7 +136,6 @@ function App() {
   React.useEffect(() => {
     const path = location.pathname;
     if (isLoggedIn) {
-
       navigate(path);
     }
   }, [isLoggedIn]);
@@ -221,16 +220,23 @@ function App() {
             }
           />
 
-          <Route
+          <Route exact path="/signup"
+           element = {!isLoggedIn ? <Register onRegister={handleRegistration} infoMessage={infoMessage} /> : <Navigate to="/movies" />}
+          />
+          <Route exact path="/signin"
+          element={!isLoggedIn ? <Login onLogin={handleAuthorization} infoMessage={infoMessage} /> : <Navigate to="/movies" />}
+          />
+
+          {/* <Route
             exact
             path="/signup"
-            element={isLoggedIn ? <Navigate to="/movies" /> : <Register onRegister={handleRegistration} infoMessage={infoMessage} />}
+            element={!isLoggedIn ? <Navigate to="/movies" /> : <Register onRegister={handleRegistration} infoMessage={infoMessage} />}
           ></Route>
           <Route
             exact
             path="/signin"
             element={isLoggedIn ? <Navigate to="/movies" /> : <Login onLogin={handleAuthorization} infoMessage={infoMessage} />}
-          ></Route>
+          ></Route> */}
 
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -8,7 +8,6 @@ import { filterMovies, filterShortMovies, changeMovies } from "../../utils/utils
 import moviesApi from "../../utils/MoviesApi";
 
 function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
-  
   const forCheckbox = localStorage.getItem("shortFilms") === "on" ? "on" : "off";
 
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -28,7 +27,6 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
   }
 
   function handleSearchSubmit(value) {
-    
     setIsMoviesLoaging(true);
     setSearchQuery(value);
     localStorage.setItem("searchQuery", value);
@@ -46,7 +44,7 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
           setIsError(true);
           console.log(err);
         })
-        .finally(() => setIsMoviesLoaging(false))
+        .finally(() => setIsMoviesLoaging(false));
     } else {
       handleSetFilteredMovies(allMovies, value, shortFilms);
       setIsMoviesLoaging(false);
@@ -80,22 +78,25 @@ function Movies({ isLoggedIn, onLikeClick, savedMoviesList, onDeleteClick }) {
     }
   }, [searchQuery, shortFilms, allMovies]);
 
+  // React.useEffect(() => {
+  //   const query = localStorage.getItem("searchQuery");
+  //   if (query) {
+  //     handleSearchSubmit(query);
+  //   }
+  // }, []);
+
   return (
     <section className="movies">
       <Header isLoggedIn={isLoggedIn} />
-      <SearchForm 
-        onSearchClick={handleSearchSubmit} 
-        onCheckbox={handleCheckbox} 
-        shortFilms={shortFilms} 
-      />
-        <MoviesCardList
-          list={filteredMovies}
-          isLoading={isMoviesLoaging}
-          isEmptyList={isNothingFound}
-          onLike={onLikeClick}
-          onDelete={onDeleteClick}
-          savedMovies={savedMoviesList}
-          isError={isError}
+      <SearchForm onSearchClick={handleSearchSubmit} onCheckbox={handleCheckbox} shortFilms={shortFilms} />
+      <MoviesCardList
+        list={filteredMovies}
+        isLoading={isMoviesLoaging}
+        isEmptyList={isNothingFound}
+        onLike={onLikeClick}
+        onDelete={onDeleteClick}
+        savedMovies={savedMoviesList}
+        isError={isError}
       />
       <Footer />
     </section>
