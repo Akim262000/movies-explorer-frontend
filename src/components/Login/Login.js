@@ -5,12 +5,14 @@ import { useFormWithValidation } from "../../hooks/formWithValidation";
 import MessageInfo from "../MessageInfo/MessageInfo";
 
 function Login({ onLogin, infoMessage }) {
-  const { values, errors, isValid, handleChange } = useFormWithValidation();
+  const { values, errors, isValid, handleChange, isLoading, setIsLoading } = useFormWithValidation({email: '', password: ''});
 
   // ---ОБРАБОТЧИКИ---
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
+    setIsLoading(true);
     e.preventDefault();
-    onLogin(values.email, values.password);
+    await onLogin(values.email, values.password);
+    setIsLoading(false);
   }
 
   return (
@@ -30,8 +32,8 @@ function Login({ onLogin, infoMessage }) {
             maxLength="30"
             placeholder="Email"
             value={values.email}
-            pattern="[a-z0-9._%+-]+@[a-z0-9]+[.]+[a-z]{2,4}$"
             onChange={handleChange}
+            disabled={isLoading}
             required
           />
           <span className="login__error" id="email-error">
@@ -52,6 +54,7 @@ function Login({ onLogin, infoMessage }) {
             placeholder="Пароль"
             value={values.password}
             onChange={handleChange}
+            disabled={isLoading}
             required
           />
           <span className="login__error" id="password-error">
@@ -61,7 +64,7 @@ function Login({ onLogin, infoMessage }) {
 
         <MessageInfo {...infoMessage} />
 
-        <button className="login__submit-button" type="submit" disabled={!isValid}>
+        <button className="login__submit-button" type="submit" disabled={!isValid || isLoading}>
           Войти
         </button>
         <p className="login__subtitle">

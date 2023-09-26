@@ -1,10 +1,11 @@
 import React from 'react';
 
-export function useFormWithValidation() {
+export function useFormWithValidation(initialState = {}) {
   
-  const [values, setValues] = React.useState({});
+  const [values, setValues] = React.useState(initialState);
   const [errors, setErrors] = React.useState({});
   const [isValid, setIsValid] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   //---ОБРАБОТЧИКИ---
   function handleChange(e) {
@@ -17,5 +18,5 @@ export function useFormWithValidation() {
     setIsValid(input.closest('form').checkValidity());
   };
 
-  return {values, errors, isValid, handleChange, setValues, setIsValid, setErrors};
+  return {values, errors, isValid, handleChange, setValues, setIsValid, setErrors, isLoading, setIsLoading};
 };

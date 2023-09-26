@@ -13,7 +13,7 @@ function MoviesCardList({ isLoading, list, isEmptyList, onLike, onDelete, savedM
 
   React.useEffect(() => {
     if (width > 1331) {
-      setCardsShowParams({ sum: 8, more: 4 });
+      setCardsShowParams({ sum: 12, more: 4 });
     } else if (width <= 1331 && width > 1027) {
       setCardsShowParams({ sum: 12, more: 3 });
     } else if (width <= 1027 && width > 629) {

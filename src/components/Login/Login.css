@@ -28,6 +28,7 @@
   color: #A0A0A0;
   margin-bottom: 8px;
   line-height: 30px;
+  position: relative;
 }
 
 .login__input {
@@ -41,6 +42,7 @@
   border-radius: 8px;
   color: #fff;
   width: 100%;
+  border: 1px solid transparent;
 }
 
 .login__input:focus{
@@ -84,8 +86,9 @@
   transition: .3s ease;
 }
 
-.login__submit-button:disabled {
-  opacity: .8;
+.login__submit-button:disabled
+.login__submit-button:disabled:hover {
+  opacity: .5;
   cursor: default;
 }
 

@@ -4,12 +4,14 @@ import Logo from "../Logo/Logo";
 import { useFormWithValidation } from "../../hooks/formWithValidation";
 
 function Register({ onRegister }) {
-  const { values, errors, isValid, handleChange } = useFormWithValidation();
+  const { values, errors, isValid, handleChange, isLoading, setIsLoading } = useFormWithValidation({name: '', email: '', password: ''});
 
   // ---ОБРАБОТЧИКИ---
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
+    setIsLoading(true);
     e.preventDefault();
-    onRegister(values.name, values.email, values.password);
+    await onRegister(values.name, values.email, values.password);
+    setIsLoading(false);
   }
 
   return (
@@ -31,6 +33,7 @@ function Register({ onRegister }) {
             value={values.name || ""}
             pattern="^[A-Za-zА-Яа-яЁё /s -]+$"
             onChange={handleChange}
+            disabled={isLoading}
             required
           />
           <span className="register__error" id="name-error">
@@ -52,6 +55,7 @@ function Register({ onRegister }) {
             placeholder="Email"
             value={values.email || ""}
             onChange={handleChange}
+            disabled={isLoading}
             required
           />
           <span className="register__error" id="email-error">
@@ -72,6 +76,7 @@ function Register({ onRegister }) {
             placeholder="Пароль"
             value={values.password || ""}
             onChange={handleChange}
+            disabled={isLoading}
             required
           />
           <span className="register__error" id="password-error">
@@ -79,7 +84,7 @@ function Register({ onRegister }) {
           </span>
         </label>
 
-        <button className="register__submit-button" type="submit" disabled={!isValid}>
+        <button className="register__submit-button" type="submit" disabled={!isValid || isLoading}>
           зарегистрироваться
         </button>
         <p className="register__subtitle">
