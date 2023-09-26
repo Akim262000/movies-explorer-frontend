@@ -3,40 +3,52 @@ import "./SearchForm.css";
 import { useFormWithValidation } from "../../hooks/formWithValidation";
 
 function SearchForm({ onSearchClick, savedMoviesPage, shortFilms, onCheckbox }) {
-  const { values, errors, isValid, setValues, handleChange, setIsValid } = useFormWithValidation();
+  // const { values, errors, isValid, setValues, handleChange, setIsValid } = useFormWithValidation();
 
-  function handleSubmit(e) {
+
+  const [query, setQuery] = React.useState("");
+  const [isValid, setIsValid] = React.useState(true);
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    onSearchClick(values.query);
+    if(!query) {
+      setIsValid(false);
+    } else {
+      onSearchClick(query);
+    }
   }
+
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   onSearchClick(values.query);
+  // }
 
   // ---ЭФФЕКТЫ---
   React.useEffect(() => {
     if (!savedMoviesPage) {
       const input = localStorage.getItem("searchQuery");
       if (input) {
-        setValues({ query: input });
+        setQuery(input);
         setIsValid(true);
       }
     }
-  }, [savedMoviesPage, setValues, setIsValid]);
+  }, [savedMoviesPage, setQuery, setIsValid]);
 
   return (
     <div className="search-form">
-      <form className="search-form__form" onSubmit={handleSubmit}>
+      <form className="search-form__form" onSubmit={handleSubmit} noValidate={true}>
         <div className="search-form__search-container">
           <input
             className="search-form__input"
             type="text"
             placeholder="Фильм"
             name="query"
-            value={values.query || ""}
-            onChange={handleChange}
+            value={query || ""}
+            onChange={(e) => {setQuery(e.target.value); setIsValid(true)}}
             required
-            noValidate
           ></input>
-          <span className="search-form__error">{errors.query ? "Нужно ввести ключевое слово" : ""}</span>
-          <button className="search-form__button" disabled={!isValid}></button>
+          <button type="submit" className="search-form__button"></button>
+          <span id="email-error" className="search-form__error">{!isValid ? "Нужно ввести ключевое слово" : ""}</span>
         </div>
         <div className="search-form__filter-container">
           <label
