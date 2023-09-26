@@ -220,11 +220,15 @@ function App() {
             }
           />
 
-          <Route exact path="/signup"
-           element = {!isLoggedIn ? <Register onRegister={handleRegistration} infoMessage={infoMessage} /> : <Navigate to="/movies" />}
+          <Route
+            exact
+            path="/signup"
+            element={!isLoggedIn ? <Register onRegister={handleRegistration} infoMessage={infoMessage} /> : <Navigate to="/movies" />}
           />
-          <Route exact path="/signin"
-          element={!isLoggedIn ? <Login onLogin={handleAuthorization} infoMessage={infoMessage} /> : <Navigate to="/movies" />}
+          <Route
+            exact
+            path="/signin"
+            element={!isLoggedIn ? <Login onLogin={handleAuthorization} infoMessage={infoMessage} /> : <Navigate to="/movies" />}
           />
 
           {/* <Route
