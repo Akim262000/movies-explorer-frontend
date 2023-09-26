@@ -14,9 +14,9 @@ function MoviesCardList({ isLoading, list, isEmptyList, onLike, onDelete, savedM
   React.useEffect(() => {
     if (width > 1367) {
       setCardsShowParams({ sum: 12, more: 4 });
-    } else if (width <= 1367 && width > 1027) {
+    } else if (width <= 1367 && width > 1057) {
       setCardsShowParams({ sum: 12, more: 3 });
-    } else if (width <= 1027 && width > 629) {
+    } else if (width <= 1056 && width > 629) {
       setCardsShowParams({ sum: 8, more: 2 });
     } else if (width <= 629) {
       setCardsShowParams({ sum: 5, more: 2 });
