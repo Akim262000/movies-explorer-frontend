@@ -27,7 +27,7 @@
   color: white;
   margin-right: 31px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 18px;
   transition: opacity 0.3s ease-in;
 }
@@ -67,7 +67,7 @@
 }
 
 .navigation-menu__button-burger {
-  background-image: url('../../images/button-burger.svg');
+  background-image: url("../../images/button-burger.svg");
   width: 50px;
   height: 44px;
   background-color: #202020;
@@ -79,15 +79,12 @@
 }
 
 @media screen and (max-width: 768px) {
-  .navigation-menu__link {
-    display: none;
+  .navigation-menu {
+    justify-content: end;
   }
 
-  .navigation-menu__button {
-    display: none;
-  }
-
-  .navigation-menu__button-account {
+  .navigation-menu__container-movies,
+  .navigation-menu__container-acc {
     display: none;
   }
 

@@ -1,35 +1,125 @@
 import { Link } from "react-router-dom";
-import "./Profile.css"
+import "./Profile.css";
 import Header from "../Header/Header";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import React from "react";
+import { useFormWithValidation } from "../../hooks/formWithValidation";
+import MessageInfo from "../MessageInfo/MessageInfo";
 
-const name = "Виталий";
-const email = "pochta@yandex.ru";
+function Profile({ isLoggedIn, onSignOut, onUpdate, infoMessage }) {
+  const currentUser = React.useContext(CurrentUserContext);
+  const { values, isValid, handleChange, setValues, setIsValid } = useFormWithValidation();
+  const [isInputActive, setIsInputActive] = React.useState(false);
 
-function Profile({isLoggedIn}) {
+  // ---ЭФФЕКТЫ---
+  // получаем текущие значения для установки в поля формы
+  React.useEffect(() => {
+    if (currentUser) {
+      setValues({
+        name: currentUser.name,
+        email: currentUser.email,
+      });
+    }
+  }, [setValues, currentUser]);
+
+  // блокируем отправку формы если значения в полях и контексте одинаковые
+  React.useEffect(() => {
+    if (currentUser.name === values.name && currentUser.email === values.email) {
+      setIsValid(false);
+    }
+  }, [setIsValid, values, currentUser]);
+
+  // блокируем поля если редактирование прошло успешно
+  React.useEffect(() => {
+    if (infoMessage.isShown && infoMessage.code === 200) {
+      setIsInputActive(false);
+    }
+  }, [setIsInputActive, infoMessage.isShown, infoMessage.code]);
+
+  // ---ОБРАБОТЧИКИ---
+  // обработчик отправки формы
+  function handleSubmit(e) {
+    e.preventDefault();
+    onUpdate(values.name, values.email);
+  }
+
+  // обработчик для разблокирования полей ввода
+  function handleRedactClick() {
+    setIsInputActive(true);
+  }
+
   return (
     <>
-    <section className="profile">
-    <Header isLoggedIn={isLoggedIn} />
-      <div className="profile__container">
-        <h2 className="profile__title">Привет, Виталий!</h2>
-        <form className="profile__form">
-          <label className="profile__label">Имя
-            <input className="profile__input" value={name} type="text" name="name" id="name" minLength="2" maxLength="30" required ></input>
-            <span className="profile__error" id="name-error"></span>
-          </label>
-          <label className="profile__label">Email
-            <input className="profile__input" value={email} type="email" name="email" id="email" minLength="2" maxLength="30" required ></input>
-            <span className="profile__error" id="email-error"></span>
-          </label>
-          <button className="profile__button profile__button_type_edit app__link">Редактировать</button>
-          <button className="profile__button profile__button_type_exit">
-            <Link className="profile__link app__link" to="/">Выйти из аккаунта</Link>
-          </button>
-        </form>
-      </div>
-    </section>
+      <section className="profile">
+        <Header isLoggedIn={isLoggedIn} />
+        <div className="profile__container">
+          <h2 className="profile__title">{`Привет, ${currentUser.name}!`}</h2>
+          <form className="profile__form" onSubmit={handleSubmit}>
+            <label className="profile__label">
+              Имя
+              <input
+                className="profile__input"
+                value={values.name || ""}
+                pattern="^[A-Za-zА-Яа-яЁё /s -]+$"
+                type="text"
+                name="name"
+                id="name"
+                minLength="2"
+                maxLength="30"
+                onChange={handleChange}
+                disabled={!isInputActive}
+                required
+              ></input>
+              {/* <span className="profile__error" id="name-error">
+                {errors.name
+                  ? `Поле должно быть заполнено`
+                  : ""}
+              </span> */}
+              
+            </label>
+            <label className="profile__label">
+              Email
+              <input
+                className="profile__input"
+                value={values.email || ""}
+                pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+                type="email"
+                name="email"
+                id="email"
+                minLength="2"
+                maxLength="30"
+                onChange={handleChange}
+                disabled={!isInputActive}
+                required
+              ></input>
+              {/* <span className="profile__error" id="email-error">
+                {errors.email || ""}
+              </span> */}
+            </label>
+
+            <MessageInfo {...infoMessage} />
+
+            {isInputActive ? (
+              <button className="profile__button profile__button_type_submit app__link" type="submit" disabled={!isValid}>
+                Сохранить
+              </button>
+            ) : (
+              <>
+                <button className="profile__button profile__button_type_edit app__link" type="button" onClick={handleRedactClick}>
+                  Редактировать
+                </button>
+                <button className="profile__button profile__button_type_exit">
+                  <Link className="profile__link app__link" to="/" type="button" onClick={onSignOut}>
+                    Выйти из аккаунта
+                  </Link>
+                </button>
+              </>
+            )}
+          </form>
+        </div>
+      </section>
     </>
-  )
+  );
 }
 
 export default Profile;

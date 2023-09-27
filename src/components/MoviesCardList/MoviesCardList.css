@@ -10,6 +10,7 @@
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   justify-content: center;
   justify-items: center;
+  max-width: 1350px;
   width: 100%;
   box-sizing: border-box;
   grid-column-gap: 30px;
