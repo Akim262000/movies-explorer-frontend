@@ -30,7 +30,7 @@ function Register({ onRegister }) {
             minLength="2"
             maxLength="30"
             placeholder="Имя"
-            value={values.name || ""}
+            value={values.name}
             pattern="^[A-Za-zА-Яа-яЁё /s -]+$"
             onChange={handleChange}
             disabled={isLoading}
@@ -53,7 +53,7 @@ function Register({ onRegister }) {
             minLength="2"
             maxLength="30"
             placeholder="Email"
-            value={values.email || ""}
+            value={values.email}
             pattern="[a-zA-Z0-9._\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
             onChange={handleChange}
             disabled={isLoading}
@@ -75,7 +75,7 @@ function Register({ onRegister }) {
             minLength="4"
             maxLength="20"
             placeholder="Пароль"
-            value={values.password || ""}
+            value={values.password}
             onChange={handleChange}
             disabled={isLoading}
             required
